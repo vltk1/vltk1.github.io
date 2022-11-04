@@ -1,1 +1,35 @@
-ok 1212ada dsad
+<html>
+<head>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="keywords" content="ドーミーイン北見,北見,ホテル,北海道,ビジネスホテル,温泉,天然温泉,宿泊,予約,常呂川の湯,ところがわの湯">
+	<meta name="description" content="【天然温泉 常呂川の湯 ドーミーイン北見】のご予約は公式サイトホテスパがお得！北海道、JR「北見」駅より徒歩3分。露天風呂付き天然温泉でリゾート気分を満喫。疲れが癒せると同時に、ツルツルお肌もゲット！">
+<script>
+function showHint(str) {
+  if (str.length == 0) {
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  } else {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("txtHint").innerHTML = this.responseText;
+      }
+    };
+    xmlhttp.open("GET", "gethint.php?q=" + str, true);
+    xmlhttp.send();
+  }
+}
+</script>
+</head>
+<body>
+
+<p><b>Start typing a name in the input field below:</b></p>
+<form action="">
+  <label for="fname">Từ khóa:</label>
+  <input type="text" id="fname" name="fname" onkeyup="showHint(this.value)">
+</form>
+<p>Kết quả: <span id="txtHint"></span></p>
+</body>
+</html>
