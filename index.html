@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,900;1,500;1,700&display=swap" rel="stylesheet">
 </head>
+
 <style>
 * {
     margin: 0;
@@ -323,7 +324,7 @@ footer {
         <li class="block_item" id="frame_vnexpress">
             <a class="block_link" href="https://www.ebay.com/" target="_blank">
                 <figure class="block_icon">
-                    <img src="./i/ebay.jpg" alt="">
+                    <img src="./i/iebay.jpg" alt="">
                     <figcaption class="block_name">ebay</figcaption>
                 </figure>
             </a>
@@ -748,14 +749,6 @@ footer {
             </a>
         </li>
         
-        <!-- <li class="block_item" id="frame_vnexpress">
-            <a class="block_link" href="https://gamek.vn/" target="_blank">
-                <figure class="block_icon">
-                    <img src="https://bongdaplus.vn/img/logo-tap-chi.png" alt="">
-                    <figcaption class="block_name">Gamek</figcaption>
-                </figure>
-            </a>
-        </li> -->
 
         <li class="block_item" id="frame_vnexpress">
             <a class="block_link" href="https://movies.hdviet.com/" target="_blank">
@@ -1135,6 +1128,9 @@ footer {
         background-image: url("http://vietansoft.com.vn/img/upload/link/vnexpress.png");
     }
 </style>
+<div class="block_item" id="google"><div class="block_name">click</div></div>
+<div id="localStorageData">1212</div>
+
 <script>
     function tabs(value) {
         $(".block_dots").removeClass("open");
@@ -1157,51 +1153,70 @@ footer {
     
     $(".block_item").click(function() {
         $(this).toggleClass("open");
+        var addItem = $(this).attr("id");
+        historyAdd(addItem);
     });
     /*
     https://api.jquery.com/dblclick/
-   
     */
+    
+    // if (typeof(Storage) !== "undefined") {
+    // } else {
+    // document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+    // }
+// ADD
 
-    $('.block_item').mousedown(function(event) {
-        switch (event.which) {
-            case 1:
-                break;
-            case 2:
-                alert('Middle Mouse button pressed.');
-                break;
-            case 3:
-                taskbar("tast_vnexpress");
-                break;
-            default:
-                alert('You have a strange Mouse!');
-        }
-    });
-</script>
-<script>
-    function clickCounter() {
-      if (typeof(Storage) !== "undefined") {
-        if (localStorage.clickcount) {
-          localStorage.clickcount = Number(localStorage.clickcount)+1;
-        } else {
-          localStorage.clickcount = 1;
-        }
-        document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
-      } else {
-        document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
-      }
+
+
+
+//localStorage.removeItem('myArray');
+
+function historyAdd (value){
+    var history = localStorage.getItem('myArray');
+    alert(history.indexOf(value));
+    if(history.indexOf(value) < 0){
+        history = JSON.parse(history);
+        history.push(value);
+        localStorage.setItem('myArray', JSON.stringify(history));
+        location.reload();
     }
-    </script>
-<script>
-    // Check browser support
-    if (typeof(Storage) !== "undefined") {
-    // Store
-    localStorage.setItem("lastname", "Smith");
-    // Retrieve
-    document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+}
+function historyView (){
+    var array = localStorage.getItem('myArray');
+    array = JSON.parse(array);
+    var localhtml = "";
+    for (var i = 0; i < array.length; i++){
+        localhtml += "<li>" + array[i] + "</li>";
+    }
+    document.getElementById('localStorageData').innerHTML = localhtml;
+}
+
+if (typeof(Storage) !== 'undefined') {
+    if ("localStorage" in window) {
+        if (localStorage.getItem('myArray') !== null) {
+            // HÀM THÊM DỮ LIỆU
+            //historyAdd(7);
+
+            //location.reload();
+        }else {
+            // SET GIÁ TRỊ ĐẦU TIÊN
+            var array = [1, 2, 3];
+            localStorage.setItem('myArray', JSON.stringify(array));
+        }
     } else {
-        document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+        alert("localStorage in window");
     }
+    // HÀM LIỆT KÊ DỮ LIỆU
+    historyView();
+} else {
+    alert('LocalStorage không hỗ trợ trên trình duyệt này!!');
+}
+
+</script>
+
+
+<script>
+   
 </script>
 
 </html>
