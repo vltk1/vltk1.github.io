@@ -109,7 +109,6 @@ body {
 }
 .block_tab {
     list-style: none;
-    border: 1px solid #000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -157,18 +156,28 @@ main {
     overflow: hidden;
 }
 header, footer {
-    height: 10vh;
     display: flex;
-    align-items: center;
 }
 header {
     justify-content: center;
+    height: 5vh;
+    align-items: center;
 }
 footer {
+    height: 15vh;
     justify-content: center;
+    flex-wrap: wrap;
+    align-items: top;
+}
+nav {
+    width: 100%;
+    padding-bottom: 1vw;
 }
 .block_task.open {
     background-color: red;
+}
+.block_task img {
+    max-width: 100%;
 }
 .block_link {
     color: #000;
@@ -184,18 +193,12 @@ footer {
 }
 </style>
 <header>
-    <nav>
-        <ol class="block_tab">
-            <li class="block_dots open" id="desktop-1">O</li>
-            <li class="block_dots" id="desktop-2">O</li>
-            <li class="block_dots" id="desktop-3">O</li>
-        </ol>
-    </nav>
+    
 </header>
 <main>
     <ul class="block_list open" id="tab1">
 
-        <li class="block_item" id="frame_vnexpress">
+        <li class="block_item" id="google">
             <a class="block_link" href="https://www.google.com/" target="_blank">
                 <figure class="block_icon">
                     <img src="./i/google.png" alt="">
@@ -203,7 +206,7 @@ footer {
                 </figure>
             </a>
         </li>
-        <li class="block_item" id="frame_vnexpress">
+        <li class="block_item" id="youtube">
             <a class="block_link" href="https://www.youtube.com/" target="_blank">
                 <figure class="block_icon">
                     <img src="./i/youtube.png" alt="">
@@ -211,7 +214,7 @@ footer {
                 </figure>
             </a>
         </li>
-        <li class="block_item" id="frame_vnexpress">
+        <li class="block_item" id="facebook">
             <a class="block_link" href="https://www.facebook.com/" target="_blank">
                 <figure class="block_icon">
                     <img src="./i/facebook.png" alt="">
@@ -219,7 +222,7 @@ footer {
                 </figure>
             </a>
         </li>
-        <li class="block_item" id="frame_vnexpress">
+        <li class="block_item" id="intergram">
             <a class="block_link" href="https://www.instagram.com/" target="_blank">
                 <figure class="block_icon">
                     <img src="./i/intergram.jpg" alt="" class="block_logo">
@@ -227,7 +230,7 @@ footer {
                 </figure>
             </a>
         </li>
-        <li class="block_item" id="frame_vnexpress">
+        <li class="block_item" id="wikipedia">
             <a class="block_link" href="https://vi.wikipedia.org/wiki/Trang_Ch%C3%ADnh" target="_blank">
                 <figure class="block_icon">
                     <img src="./i/wikipedia.jpg" alt="">
@@ -236,7 +239,7 @@ footer {
             </a>
         </li>
 
-        <li class="block_item" id="frame_vnexpress">
+        <li class="block_item" id="yahoo">
             <a class="block_link" href="https://vn.yahoo.com/" target="_blank">
                 <figure class="block_icon">
                     <img src="./i/yahoo.jpg" alt="">
@@ -245,7 +248,7 @@ footer {
             </a>
         </li>
 
-        <li class="block_item" id="frame_vnexpress">
+        <li class="block_item" id="whatsapp">
             <a class="block_link" href="https://web.whatsapp.com/" target="_blank">
                 <figure class="block_icon">
                     <img src="./i/whatsapp.jpg" alt="">
@@ -253,7 +256,7 @@ footer {
                 </figure>
             </a>
         </li>
-        <li class="block_item" id="frame_vnexpress">
+        <li class="block_item" id="amazon">
             <a class="block_link" href="https://www.amazon.com/" target="_blank">
                 <figure class="block_icon">
                     <img src="./i/amazon.jpg" alt="">
@@ -270,7 +273,7 @@ footer {
             </a>
         </li>
 
-        <li class="block_item" id="frame_vnexpress">
+        <li class="block_item" id="netflix">
             <a class="block_link" href="https://www.netflix.com/vn/" target="_blank">
                 <figure class="block_icon">
                     <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
@@ -279,7 +282,7 @@ footer {
             </a>
         </li>
 
-        <li class="block_item" id="frame_vnexpress">
+        <li class="block_item" id="tiktok">
             <a class="block_link" href="https://www.tiktok.com/" target="_blank">
                 <figure class="block_icon">
                     <img src="./i/tiktok.jpg" alt="">
@@ -287,7 +290,7 @@ footer {
                 </figure>
             </a>
         </li>
-        <li class="block_item" id="frame_vnexpress">
+        <li class="block_item" id="chotot">
             <a class="block_link" href="https://www.chotot.com/" target="_blank">
                 <figure class="block_icon">
                     <img src="./i/chotot.png" alt="">
@@ -295,7 +298,7 @@ footer {
                 </figure>
             </a>
         </li>
-        <li class="block_item" id="frame_vnexpress">
+        <li class="block_item" id="zoom">
             <a class="block_link" href="https://zoom.us/" target="_blank">
                 <figure class="block_icon">
                     <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
@@ -304,7 +307,7 @@ footer {
             </a>
         </li>
 
-        <li class="block_item" id="frame_vnexpress">
+        <li class="block_item" id="twitter">
             <a class="block_link" href="https://twitter.com/" target="_blank">
                 <figure class="block_icon">
                     <img src="./i/twitter.jpg" alt="">
@@ -313,7 +316,7 @@ footer {
             </a>
         </li>
 
-        <li class="block_item" id="frame_vnexpress">
+        <li class="block_item" id="pinterest">
             <a class="block_link" href="https://www.pinterest.com/" target="_blank">
                 <figure class="block_icon">
                     <img src="./i/pinterest.jpg" alt="">
@@ -321,7 +324,7 @@ footer {
                 </figure>
             </a>
         </li>
-        <li class="block_item" id="frame_vnexpress">
+        <li class="block_item" id="iebay">
             <a class="block_link" href="https://www.ebay.com/" target="_blank">
                 <figure class="block_icon">
                     <img src="./i/iebay.jpg" alt="">
@@ -337,7 +340,7 @@ footer {
                 </figure>
             </a>
         </li>
-        <li class="block_item" id="frame_vnexpress">
+        <li class="block_item" id="bilibili">
             <a class="block_link" href="https://www.bilibili.com/" target="_blank">
                 <figure class="block_icon">
                     <img src="./i/bilibili.jpg" alt="">
@@ -1095,15 +1098,20 @@ footer {
     </ul>
 
 
+
+
 </main>
 <footer>
-    <ul class="block_taskbar">
-        <li class="block_task"></li>
-        <li class="block_task" id="tast_vnexpress"></li>
-        <li class="block_task" id="tast_youtube"></li>
-        <li class="block_task"></li>
-        <li class="block_task"></li>
-    </ul>
+    <nav>
+        <ol class="block_tab">
+            <li class="block_dots open" id="desktop-1">O</li>
+            <li class="block_dots" id="desktop-2">O</li>
+            <li class="block_dots" id="desktop-3">O</li>
+        </ol>
+    </nav>
+    <div>
+    <ul id="taskbarData" class="block_taskbar"></ul>
+</div>
 </footer>
 <style>
     .block_taskbar {
@@ -1115,10 +1123,13 @@ footer {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 2vw;
-        height: 2vw;
+        width: 64px;
+        height: 64px;
+        margin: 0 10px;
         cursor: pointer;
-        display: none;
+        border: 1px solid red;
+    }
+    .block_task:last-child {
         animation-name: open_taskbar;
         animation-duration: .45s;
     }
@@ -1128,8 +1139,8 @@ footer {
         background-image: url("http://vietansoft.com.vn/img/upload/link/vnexpress.png");
     }
 </style>
-<div class="block_item" id="google"><div class="block_name">click</div></div>
-<div id="localStorageData">1212</div>
+
+
 
 <script>
     function tabs(value) {
@@ -1173,12 +1184,12 @@ footer {
 
 function historyAdd (value){
     var history = localStorage.getItem('myArray');
-    alert(history.indexOf(value));
+    // alert(history.indexOf(value));
     if(history.indexOf(value) < 0){
         history = JSON.parse(history);
         history.push(value);
         localStorage.setItem('myArray', JSON.stringify(history));
-        location.reload();
+        historyView ();
     }
 }
 function historyView (){
@@ -1186,9 +1197,11 @@ function historyView (){
     array = JSON.parse(array);
     var localhtml = "";
     for (var i = 0; i < array.length; i++){
-        localhtml += "<li>" + array[i] + "</li>";
+        var srcImg = $("#"+array[i]+" img").attr('src');
+        var srcLink = $("#"+array[i]+" a").attr('href');
+        localhtml += "<li class='block_task'><a href='" + srcLink + "' target='_blank'><img src='" + srcImg + "'></li>";
     }
-    document.getElementById('localStorageData').innerHTML = localhtml;
+    document.getElementById('taskbarData').innerHTML = localhtml;
 }
 
 if (typeof(Storage) !== 'undefined') {
@@ -1200,7 +1213,7 @@ if (typeof(Storage) !== 'undefined') {
             //location.reload();
         }else {
             // SET GIÁ TRỊ ĐẦU TIÊN
-            var array = [1, 2, 3];
+            var array = [];
             localStorage.setItem('myArray', JSON.stringify(array));
         }
     } else {
@@ -1215,8 +1228,6 @@ if (typeof(Storage) !== 'undefined') {
 </script>
 
 
-<script>
-   
-</script>
+
 
 </html>
