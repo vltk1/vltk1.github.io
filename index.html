@@ -25,8 +25,8 @@ body {
 }
 
 @keyframes open_taskbar {
-  from {opacity: .5;transform: translate3d( 0, -5vw , 0px);}
-  to {opacity: 1;transform: translate3d(0px, 0px, 0px);}
+  from {transform: translate3d(-5px, 0px, 0px);}
+  to {transform: translate3d(0px, 0px, 0px);}
 }
 
 @keyframes open_more {
@@ -57,7 +57,14 @@ body {
     font-size: 14px;
     line-height: 1.4;
 }
-.block_item, .block_sub {
+.block_item, .block_items, .block_sub, .block_task {
+-webkit-transition: background .4s ease-in-out;
+    -moz-transition: background .4s ease-in-out;
+    -ms-transition: background .4s ease-in-out;
+    -o-transition: background .4s ease-in-out;
+    transition: background .4s ease-in-out;
+}
+.block_item, .block_sub, .block_task {
     width: calc(100vw/20);
     height: calc(100vw/20);
     max-height: calc(100vh/10);
@@ -67,13 +74,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    
     /* margin: -1px 0 0 -1px; */
 }
 .block_item {
     padding: 11px 0 6px 0;
 }
-.block_item:hover {
-    background-color: rgba(120, 120, 120, .6);
+.block_task:hover, .block_item:hover {
+    background-color: rgba(0, 0, 0, .25);
 }
 .block_items .block_icon > img {
     width: 100%;
@@ -205,10 +213,11 @@ nav {
     margin: 0 20px 25px;
 }
 .block_group {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.18);
     display: flex;
     flex-wrap: wrap;
     width: 200px;
+    min-height: 234px;
     border-radius: 15px;
     justify-content: space-between;
     align-items: center;
@@ -242,9 +251,47 @@ nav {
 </header>
 <main>
     <div class="block_list open" id="tab1">
+
         <div class="block_row">
             <ul class="block_group">
-                
+                <li class="block_item" id="google">
+                    <a class="block_link" href="https://www.google.com/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="./i/google.jpg" alt="">
+                            <figcaption class="block_name">Google</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_item" id="bing">
+                    <a class="block_link" href="https://www.bing.com/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="./i/bing.jpg" alt="">
+                            <figcaption class="block_name">bing</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_item" id="yahoo">
+                    <a class="block_link" href="https://vn.yahoo.com/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="./i/yahoo.jpg" alt="">
+                            <figcaption class="block_name">yahoo</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_item" id="duckduckgo">
+                    <a class="block_link" href="https://duckduckgo.com/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="./i/zalo.jpg" alt="">
+                            <figcaption class="block_name">duckduckgo</figcaption>
+                        </figure>
+                    </a>
+                </li>
+            </ul>
+            <h4 class="block_category">Tìm kiếm</h4>
+        </div>
+
+        <div class="block_row">
+            <ul class="block_group">
                 <li class="block_item" id="intergram">
                     <a class="block_link" href="https://www.instagram.com/" target="_blank">
                         <figure class="block_icon">
@@ -351,8 +398,15 @@ nav {
 
         <div class="block_row">
             <ul class="block_group">
-                
-                <li class="block_item" id="frame_vnexpress">
+                <li class="block_item" id="vnexpress">
+                    <a class="block_link" href="https://vnexpress.net/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="./i/vnexpress.jpg" alt="">
+                            <figcaption class="block_name">vnexpress</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_item" id="dantri">
                     <a class="block_link" href="https://dantri.com.vn/" target="_blank">
                         <figure class="block_icon">
                             <img src="./i/baodantri.png" alt="">
@@ -360,15 +414,6 @@ nav {
                         </figure>
                     </a>
                 </li>
-                <li class="block_item" id="zingnews">
-                    <a class="block_link" href="https://zingnews.vn/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
-                            <figcaption class="block_name">zingnews</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                
                 <li class="block_item" id="kenh14">
                     <a class="block_link" href="https://kenh14.vn/" target="_blank">
                         <figure class="block_icon">
@@ -386,11 +431,10 @@ nav {
                                 </figure>
                             </a>
                         </li>
-                        <li class="block_items" id="frame_vnexpress">
-                            <a class="block_link" href="https://www.messenger.com/" target="_blank">
+                        <li class="block_items" id="zingnews">
+                            <a class="block_link" href="https://zingnews.vn/" target="_blank">
                                 <figure class="block_icon">
                                     <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
-                                    <!-- <figcaption class="block_name">messenger</figcaption> -->
                                 </figure>
                             </a>
                         </li>
@@ -417,171 +461,212 @@ nav {
 
         <div class="block_row">
             <ul class="block_group">
-                <li class="block_item" id="zoom">
-                    <a class="block_link" href="https://zoom.us/" target="_blank">
+                <li class="block_item" id="shopee">
+                    <a class="block_link" href="https://shopee.vn/" target="_blank">
                         <figure class="block_icon">
                             <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
-                            <figcaption class="block_name">zoom</figcaption>
+                            <figcaption class="block_name">shopee</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_item" id="lazada">
+                    <a class="block_link" href="https://www.lazada.vn/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
+                            <figcaption class="block_name">lazada</figcaption>
                         </figure>
                     </a>
                 </li>
                
-                <li class="block_item" id="pinterest">
-                    <a class="block_link" href="https://www.pinterest.com/" target="_blank">
+                <li class="block_item" id="frame_vnexpress">
+                    <a class="block_link" href="https://tiki.vn/" target="_blank">
                         <figure class="block_icon">
-                            <img src="./i/pinterest.jpg" alt="">
-                            <figcaption class="block_name">pinterest</figcaption>
+                            <img src="https://cdnweb.dantri.com.vn/dist/static-logo.1-0-1.329fb29fe0ea34cca545.svg" alt="">
+                            <figcaption class="block_name">tiki</figcaption>
                         </figure>
                     </a>
                 </li>
-                <li class="block_item" id="iebay">
-                    <a class="block_link" href="https://www.ebay.com/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="./i/iebay.jpg" alt="">
-                            <figcaption class="block_name">ebay</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="amazon">
-                    <a class="block_link" href="https://www.amazon.com/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="./i/amazon.jpg" alt="">
-                            <figcaption class="block_name">amazon</figcaption>
-                        </figure>
-                    </a>
+                <li class="block_sub">
+                    <ul class="block_team">
+                        <li class="block_items" id="amazon">
+                            <a class="block_link" href="https://www.amazon.com/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/amazon.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="iebay">
+                            <a class="block_link" href="https://www.ebay.com/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/iebay.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="thegioididong">
+                            <a class="block_link" href="https://www.thegioididong.com/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="bachhoaxanh">
+                            <a class="block_link" href="https://www.bachhoaxanh.com/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="https://3-stc-laban.zdn.vn/largeicons/fast.accesstrade.com.vn-1524554882.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
-            <h4 class="block_category">Giải trí</h4>
+            <h4 class="block_category">Mua sắm</h4>
         </div>
 
         <div class="block_row">
             <ul class="block_group">
-                <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://www.msn.com/vi-vn" target="_blank">
+                <li class="block_item" id="agoda">
+                    <a class="block_link" href="https://www.agoda.com/vi-vn/" target="_blank">
                         <figure class="block_icon">
                             <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
-                            <figcaption class="block_name">msn</figcaption>
+                            <figcaption class="block_name">agoda</figcaption>
                         </figure>
                     </a>
                 </li>
-                <li class="block_item" id="yahoo">
-                    <a class="block_link" href="https://vn.yahoo.com/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="./i/yahoo.jpg" alt="">
-                            <figcaption class="block_name">yahoo</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://www.nettruyenon.com/" target="_blank">
+                <li class="block_item" id="begodi">
+                    <a class="block_link" href="https://www.begodi.vn/" target="_blank">
                         <figure class="block_icon">
                             <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
-                            <figcaption class="block_name">nettruyenon</figcaption>
+                            <figcaption class="block_name">begodi</figcaption>
                         </figure>
                     </a>
                 </li>
-                <li class="block_item" id="frame_vnexpress">
+                <li class="block_item" id="booking">
+                    <a class="block_link" href="https://www.booking.com/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
+                            <figcaption class="block_name">booking</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_sub">
+                    <ul class="block_team">
+                        <li class="block_items" id="vntrip">
+                            <a class="block_link" href="https://www.vntrip.vn/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/vntrip.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="chudu24">
+                            <a class="block_link" href="https://www.chudu24.com/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/chudu24.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="traveloka">
+                            <a class="block_link" href="https://www.traveloka.com/vi-vn/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/traveloka.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="gotadi">
+                            <a class="block_link" href="https://www.gotadi.com/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/gotadi.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
+            </ul>
+            <h4 class="block_category">Khách sạn & Resort</h4>
+        </div>
+
+        <div class="block_row">
+            <ul class="block_group">
+                <li class="block_item" id="miniclip">
+                    <a class="block_link" href="https://miniclip.com/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="./i/miniclip.jpg" alt="">
+                            <figcaption class="block_name">miniclip</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_item" id="poki">
+                    <a class="block_link" href="https://poki.com/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="./i/poki.jpg" alt="">
+                            <figcaption class="block_name">poki</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_item">
+                    <a class="block_link" href="https://y8.com/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="./i/y8.jpg" alt="">
+                            <figcaption class="block_name">y8</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_sub">
+                    <ul class="block_team">
+                        <li class="block_items" id="addictinggames">
+                            <a class="block_link" href="https://www.addictinggames.com/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/addictinggames.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="gamevui">
+                            <a class="block_link" href="https://gamevui.vn/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/gamevui.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="mmogames">
+                            <a class="block_link" href="https://mmogames.com/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/mmogames.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="kongregate">
+                            <a class="block_link" href="https://www.kongregate.com/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/kongregate.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
+            </ul>
+            <h4 class="block_category">Game online</h4>
+        </div>
+
+        <div class="block_row">
+            <ul class="block_group">
+                <li class="block_item" id="daiphat">
                     <a class="block_link" href="https://xosodaiphat.com/" target="_blank">
                         <figure class="block_icon">
                             <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
-                            <figcaption class="block_name">xosodaiphat</figcaption>
+                            <figcaption class="block_name">daiphat</figcaption>
                         </figure>
                     </a>
                 </li>
-            </ul>
-            <h4 class="block_category">Giải trí</h4>
-        </div>
-
-        <div class="block_row">
-            <ul class="block_group">
-                <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://www.24h.com.vn/" target="_blank">
+                <li class="block_item" id="minhngoc">
+                    <a class="block_link" href="https://www.minhngoc.net.vn/" target="_blank">
                         <figure class="block_icon">
                             <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
-                            <figcaption class="block_name">24h</figcaption>
+                            <figcaption class="block_name">minhngoc</figcaption>
                         </figure>
                     </a>
                 </li>
-                <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://shopee.vn/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
-                            <figcaption class="block_name">shopee</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="wikipedia">
-                    <a class="block_link" href="https://vi.wikipedia.org/wiki/Trang_Ch%C3%ADnh" target="_blank">
-                        <figure class="block_icon">
-                            <img src="./i/wikipedia.jpg" alt="">
-                            <figcaption class="block_name">wikipedia</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://xoso.com.vn/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
-                            <figcaption class="block_name">xoso</figcaption>
-                        </figure>
-                    </a>
-                </li>
-            </ul>
-            <h4 class="block_category">Giải trí</h4>
-        </div>
-
-        <div class="block_row">
-            <ul class="block_group">
-                <li class="block_item" id="netflix">
-                    <a class="block_link" href="https://www.netflix.com/vn/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
-                            <figcaption class="block_name">netflix</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://shopee.vn/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
-                            <figcaption class="block_name">shopee</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://xoso.mobi/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
-                            <figcaption class="block_name">xoso</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://outlook.live.com/owa/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
-                            <figcaption class="block_name">outlook</figcaption>
-                        </figure>
-                    </a>
-                </li>
-            </ul>
-            <h4 class="block_category">Giải trí</h4>
-        </div>
-
-        <div class="block_row">
-            <ul class="block_group">
-                1111
-
-                <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://www.thegioididong.com/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
-                            <figcaption class="block_name">thegioididong</figcaption>
-                        </figure>
-                    </a>
-                </li>
-
-                <li class="block_item" id="frame_vnexpress">
+                <li class="block_item" id="xsmn247">
                     <a class="block_link" href="https://xsmn247.me/" target="_blank">
                         <figure class="block_icon">
                             <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
@@ -589,31 +674,40 @@ nav {
                         </figure>
                     </a>
                 </li>
-            </ul>
-            <h4 class="block_category">Giải trí</h4>
-        </div>
-
-        <div class="block_row">
-            <ul class="block_group">
-                
-                <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://truyenfull.vn/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
-                            <figcaption class="block_name">truyenfull</figcaption>
-                        </figure>
-                    </a>
+                <li class="block_sub">
+                    <ul class="block_team">
+                        <li class="block_items" id="xoso">
+                            <a class="block_link" href="https://xoso.com.vn/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="gamevui">
+                            <a class="block_link" href="https://gamevui.vn/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/gamevui.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="mmogames">
+                            <a class="block_link" href="https://mmogames.com/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/mmogames.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="kongregate">
+                            <a class="block_link" href="https://www.kongregate.com/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/kongregate.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-                <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://vietnamnet.vn/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
-                            <figcaption class="block_name">vietnamnet</figcaption>
-                        </figure>
-                    </a>
-                </li>
             </ul>
-            <h4 class="block_category">Giải trí</h4>
+            <h4 class="block_category">Xổ số</h4>
         </div>
 
         <div class="block_row">
@@ -626,70 +720,405 @@ nav {
                         </figure>
                     </a>
                 </li>
-                <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://vietjack.com/" target="_blank">
+                <li class="block_item" id="5giay">
+                    <a class="block_link" href="https://www.5giay.vn/" target="_blank">
                         <figure class="block_icon">
-                            <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
-                            <figcaption class="block_name">vietjack</figcaption>
+                            <img src="./i/5giay.png" alt="">
+                            <figcaption class="block_name">5giay</figcaption>
                         </figure>
                     </a>
                 </li>
-                <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://www.minhngoc.net.vn/" target="_blank">
+                <li class="block_item" id="vatgia">
+                    <a class="block_link" href="https://vatgia.com/" target="_blank">
                         <figure class="block_icon">
-                            <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
-                            <figcaption class="block_name">Xổ số minhngoc</figcaption>
+                            <img src="./i/vatgia.png" alt="">
+                            <figcaption class="block_name">vatgia</figcaption>
                         </figure>
                     </a>
+                </li>
+                <li class="block_sub">
+                    <ul class="block_team">
+                        <li class="block_items" id="nhattao">
+                            <a class="block_link" href="https://nhattao.com/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/nhattao.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="rongbay">
+                            <a class="block_link" href="https://rongbay.com/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/rongbay.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="muare">
+                            <a class="block_link" href="https://muare.vn/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/muare.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="muaban">
+                            <a class="block_link" href="https://muaban.net/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/muaban.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
-            <h4 class="block_category">Giải trí</h4>
+            <h4 class="block_category">Rao vặt</h4>
         </div>
 
         <div class="block_row">
             <ul class="block_group">
-                <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://vinmec.com/vi/" target="_blank">
+                <li class="block_item" id="vtvgiaitri">
+                    <a class="block_link" href="https://www.vtvgiaitri.vn/" target="_blank">
                         <figure class="block_icon">
-                            <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
-                            <figcaption class="block_name">vinmec</figcaption>
+                            <img src="./i/vtvgiaitri.jpg" alt="">
+                            <figcaption class="block_name">vtvgiaitri</figcaption>
                         </figure>
                     </a>
                 </li>
+                <li class="block_item" id="hdviet">
+                    <a class="block_link" href="https://movies.hdviet.com/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="./i/hdviet.jpg" alt="">
+                            <figcaption class="block_name">hdviet</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_item" id="fptplay">
+                    <a class="block_link" href="https://fptplay.vn/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="./i/fptplay.jpg" alt="">
+                            <figcaption class="block_name">fptplay</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_sub">
+                    <ul class="block_team">
+                        <li class="block_items" id="motphimtv">
+                            <a class="block_link" href="https://motphimtv.me/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/motphimtv.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="vivo">
+                            <a class="block_link" href="https://vivo.vn/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/vivo.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="phimmoichilli">
+                            <a class="block_link" href="https://phimmoichilli.net/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/phimmoichilli.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="dongphymz">
+                            <a class="block_link" href="https://dongphymz.net/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/dongphymz.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
-            <h4 class="block_category">Giải trí</h4>
+            <h4 class="block_category">Xem phim</h4>
         </div>
 
         <div class="block_row">
             <ul class="block_group">
-                <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://www.lazada.vn/" target="_blank">
+                <li class="block_item" id="thuocbietduoc">
+                    <a class="block_link" href="https://www.thuocbietduoc.com.vn/" target="_blank">
                         <figure class="block_icon">
-                            <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
-                            <figcaption class="block_name">lazada</figcaption>
+                            <img src="./i/thuocbietduoc.jpg" alt="">
+                            <figcaption class="block_name">thuocbietduoc</figcaption>
                         </figure>
                     </a>
                 </li>
+                <li class="block_item" id="suckhoedoisong">
+                    <a class="block_link" href="https://suckhoedoisong.vn/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="./i/suckhoedoisong.jpg" alt="">
+                            <figcaption class="block_name">suckhoedoisong</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_item" id="alobacsi">
+                    <a class="block_link" href="https://alobacsi.com/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="./i/15minutes4me.jpg" alt="">
+                            <figcaption class="block_name">alobacsi</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_sub">
+                    <ul class="block_team">
+                        <li class="block_items" id="dinhduong">
+                            <a class="block_link" href="https://dinhduong.com.vn/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/dinhduong.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="xemphimvn2">
+                            <a class="block_link" href="https://xemphimvn2.com/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/xemphimvn2.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="phimmoichilli">
+                            <a class="block_link" href="https://phimmoichilli.net/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/phimmoichilli.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="15minutes4me">
+                            <a class="block_link" href="https://www.15minutes4me.com/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/15minutes4me.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <h4 class="block_category">Sức khỏe</h4>
+        </div>
+
+        <div class="block_row">
+            <ul class="block_group">
+                <li class="block_item" id="hocmai">
+                    <a class="block_link" href="https://hocmai.vn/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="./i/hocmai.jpg" alt="">
+                            <figcaption class="block_name">hocmai</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_item" id="tuyensinh247">
+                    <a class="block_link" href="https://tuyensinh247.com/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="./i/tuyensinh247.jpg" alt="">
+                            <figcaption class="block_name">tuyensinh247</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_item" id="luyenthi123">
+                    <a class="block_link" href="https://www.luyenthi123.com/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="./i/luyenthi123.jpg" alt="">
+                            <figcaption class="block_name">luyenthi123</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_sub">
+                    <ul class="block_team">
+                        <li class="block_items" id="edumall">
+                            <a class="block_link" href="https://edumall.vn/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/edumall.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="mathvn">
+                            <a class="block_link" href="https://www.mathvn.com/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/mathvn.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="zuni">
+                            <a class="block_link" href="http://zuni.vn/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/zuni.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="unica">
+                            <a class="block_link" href="https://unica.vn/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/unica.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <h4 class="block_category">Học trực tuyến</h4>
+        </div>
+
+        <div class="block_row">
+            <ul class="block_group">
+                <li class="block_item" id="truyenfull">
+                    <a class="block_link" href="https://truyenfull.vn/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="./i/truyenfull.jpg" alt="">
+                            <figcaption class="block_name">truyenfull</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_item" id="truyengihotne">
+                    <a class="block_link" href="https://truyengihotne.net/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="./i/truyengihotne.jpg" alt="">
+                            <figcaption class="block_name">truyengihotne</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_item" id="dtruyen">
+                    <a class="block_link" href="https://dtruyen.com/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="./i/truyengihotne.jpg" alt="">
+                            <figcaption class="block_name">dtruyen</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_sub">
+                    <ul class="block_team">
+                        <li class="block_items" id="truyenhdx">
+                            <a class="block_link" href="https://truyenhdx.com/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/truyenhdx.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="anime47">
+                            <a class="block_link" href="https://anime47.com/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/anime47.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="hacamchicac">
+                            <a class="block_link" href="https://hacamchicac.com/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/hacamchicac.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="cmangaz">
+                            <a class="block_link" href="https://cmangaz.com/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/cmangaz.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <h4 class="block_category">Truyện tranh</h4>
+        </div>
+
+        <div class="block_row">
+            <ul class="block_group">
                 <li class="block_item" id="frame_vnexpress">
                     <a class="block_link" href="https://cafef.vn/" target="_blank">
                         <figure class="block_icon">
-                            <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
+                            <img src="./i/cafef.jpg" alt="">
                             <figcaption class="block_name">cafef</figcaption>
                         </figure>
                     </a>
                 </li>
-                <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://tienphong.vn/" target="_blank">
+                <li class="block_item" id="vneconomy">
+                    <a class="block_link" href="https://vneconomy.vn/" target="_blank">
                         <figure class="block_icon">
-                            <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
-                            <figcaption class="block_name">tienphong</figcaption>
+                            <img src="./i/vneconomy.jpg" alt="">
+                            <figcaption class="block_name">vietnamnet</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_item" id="vef">
+                    <a class="block_link" href="https://vef.vn/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="./i/vef.jpg" alt="">
+                            <figcaption class="block_name">vef</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_item" id="baodautu">
+                    <a class="block_link" href="https://baodautu.vn/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="./i/baodautu.jpg" alt="">
+                            <figcaption class="block_name">msn</figcaption>
                         </figure>
                     </a>
                 </li>
             </ul>
-            <h4 class="block_category">Giải trí</h4>
+            <h4 class="block_category">Tin thị trường</h4>
         </div>
 
+        <div class="block_row">
+            <ul class="block_group">
+                <li class="block_item" id="maps">
+                    <a class="block_link" href="https://www.google.com/maps/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="./i/maps.jpg" alt="">
+                            <figcaption class="block_name">maps</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_item" id="keep">
+                    <a class="block_link" href="https://keep.google.com/u/0/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="./i/keep.jpg" alt="">
+                            <figcaption class="block_name">keep</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_item" id="calendar">
+                    <a class="block_link" href="https://calendar.google.com/calendar/u/0/r" target="_blank">
+                        <figure class="block_icon">
+                            <img src="./i/calendar.jpg" alt="">
+                            <figcaption class="block_name">calendar</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_sub">
+                    <ul class="block_team">
+                        <li class="block_items" id="excel">
+                            <a class="block_link" href="https://docs.google.com/spreadsheets/u/0/create?usp=sheet_home&ths=true" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/excel.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="word">
+                            <a class="block_link" href="https://docs.google.com/document/u/0/create?usp=docs_home&ths=true" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/word.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="powerpoint">
+                            <a class="block_link" href="https://docs.google.com/presentation/u/0/create?usp=slides_home&ths=true" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/powerpoint.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="drive">
+                            <a class="block_link" href="https://drive.google.com/drive/u/0/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/drive.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <h4 class="block_category">Google</h4>
+        </div>
         <div class="block_row">
             <ul class="block_group">
                 <li class="block_item" id="frame_vnexpress">
@@ -708,28 +1137,38 @@ nav {
                         </figure>
                     </a>
                 </li>
+                <li class="block_item" id="wikipedia">
+                    <a class="block_link" href="https://vi.wikipedia.org/wiki/Trang_Ch%C3%ADnh" target="_blank">
+                        <figure class="block_icon">
+                            <img src="./i/wikipedia.jpg" alt="">
+                            <figcaption class="block_name">wikipedia</figcaption>
+                        </figure>
+                    </a>
+                </li>
+            </ul>
+            <h4 class="block_category">Bóng đá</h4>
+        </div>
+
+        <div class="block_row">
+            <ul class="block_group">
+                
+                
                 <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://motphimtv.me/" target="_blank">
+                    <a class="block_link" href="https://tienphong.vn/" target="_blank">
                         <figure class="block_icon">
                             <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
-                            <figcaption class="block_name">motphimtv</figcaption>
+                            <figcaption class="block_name">tienphong</figcaption>
                         </figure>
                     </a>
                 </li>
             </ul>
             <h4 class="block_category">Giải trí</h4>
         </div>
+        
 
         <div class="block_row">
             <ul class="block_group">
-                <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://truyengihotne.net/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
-                            <figcaption class="block_name">truyengihotne</figcaption>
-                        </figure>
-                    </a>
-                </li>
+                
                 <li class="block_item" id="frame_vnexpress">
                     <a class="block_link" href="https://hhhkungfu.tv/" target="_blank">
                         <figure class="block_icon">
@@ -760,22 +1199,8 @@ nav {
                         </figure>
                     </a>
                 </li>
-                <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://truyengihotne.net/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://4-stc-laban.zdn.vn/largeicons/fast.accesstrade.com.vn-1524554015.jpg" alt="">
-                            <figcaption class="block_name">truyengihotne</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://www.bachhoaxanh.com/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://3-stc-laban.zdn.vn/largeicons/fast.accesstrade.com.vn-1524554882.jpg" alt="">
-                            <figcaption class="block_name">bachhoaxanh</figcaption>
-                        </figure>
-                    </a>
-                </li>
+              
+                
             </ul>
             <h4 class="block_category">Giải trí</h4>
         </div>
@@ -800,14 +1225,7 @@ nav {
                     </a>
                 </li>
 
-                <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://dtruyen.com/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://cdnweb.dantri.com.vn/dist/static-logo.1-0-1.329fb29fe0ea34cca545.svg" alt="">
-                            <figcaption class="block_name">dtruyen</figcaption>
-                        </figure>
-                    </a>
-                </li>
+               
             </ul>
             <h4 class="block_category">Giải trí</h4>
         </div>
@@ -822,11 +1240,11 @@ nav {
                         </figure>
                     </a>
                 </li>
-                <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://tiki.vn/" target="_blank">
+                <li class="block_item" id="netflix">
+                    <a class="block_link" href="https://www.netflix.com/vn/" target="_blank">
                         <figure class="block_icon">
-                            <img src="https://cdnweb.dantri.com.vn/dist/static-logo.1-0-1.329fb29fe0ea34cca545.svg" alt="">
-                            <figcaption class="block_name">tiki</figcaption>
+                            <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
+                            <figcaption class="block_name">netflix</figcaption>
                         </figure>
                     </a>
                 </li>
@@ -845,14 +1263,6 @@ nav {
         <div class="block_row">
             <ul class="block_group">
                 <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://xemphimvn2.com/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://cdnweb.dantri.com.vn/dist/static-logo.1-0-1.329fb29fe0ea34cca545.svg" alt="">
-                            <figcaption class="block_name">xemphimvn2</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="frame_vnexpress">
                     <a class="block_link" href="https://loigiaihay.com/" target="_blank">
                         <figure class="block_icon">
                             <img src="https://cdnweb.dantri.com.vn/dist/static-logo.1-0-1.329fb29fe0ea34cca545.svg" alt="">
@@ -860,14 +1270,7 @@ nav {
                         </figure>
                     </a>
                 </li>
-                <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://anime47.com/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://cdnweb.dantri.com.vn/dist/static-logo.1-0-1.329fb29fe0ea34cca545.svg" alt="">
-                            <figcaption class="block_name">anime47</figcaption>
-                        </figure>
-                    </a>
-                </li>
+                
             </ul>
             <h4 class="block_category">Giải trí</h4>
         </div>
@@ -876,14 +1279,13 @@ nav {
         <div class="block_row">
             <ul class="block_group">
                 <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://gamek.vn/" target="_blank">
+                    <a class="block_link" href="https://apkmody.io/" target="_blank">
                         <figure class="block_icon">
                             <img src="https://bongdaplus.vn/img/logo-tap-chi.png" alt="">
-                            <figcaption class="block_name">Gamek</figcaption>
+                            <figcaption class="block_name">apkmody</figcaption>
                         </figure>
                     </a>
                 </li>
-
                 <li class="block_item" id="frame_vnexpress">
                     <a class="block_link" href="https://apkmody.io/" target="_blank">
                         <figure class="block_icon">
@@ -892,12 +1294,11 @@ nav {
                         </figure>
                     </a>
                 </li>
-
                 <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://phimmoichilli.net/" target="_blank">
+                    <a class="block_link" href="https://apkmody.io/" target="_blank">
                         <figure class="block_icon">
                             <img src="https://bongdaplus.vn/img/logo-tap-chi.png" alt="">
-                            <figcaption class="block_name">phimmoichilli</figcaption>
+                            <figcaption class="block_name">apkmody</figcaption>
                         </figure>
                     </a>
                 </li>
@@ -915,14 +1316,7 @@ nav {
                         </figure>
                     </a>
                 </li>
-                <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://truyenhdx.com/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://bongdaplus.vn/img/logo-tap-chi.png" alt="">
-                            <figcaption class="block_name">truyenhdx</figcaption>
-                        </figure>
-                    </a>
-                </li>
+                
                 <li class="block_item" id="frame_vnexpress">
                     <a class="block_link" href="https://movies.hdviet.com/" target="_blank">
                         <figure class="block_icon">
@@ -1304,9 +1698,10 @@ nav {
         align-items: center;
         width: 64px;
         height: 64px;
-        margin: 0 10px;
         cursor: pointer;
-        border: 1px solid red;
+        position: relative;
+        z-index: 8;
+
     }
     .block_task:last-child {
         animation-name: open_taskbar;
@@ -1317,49 +1712,29 @@ nav {
         background-size: 100%;
         background-image: url("http://vietansoft.com.vn/img/upload/link/vnexpress.png");
     }
+    .block_close {
+        width: 20px;
+        height: 20px;
+        background-color: rgba(0,0,0, .4);
+        position: absolute;
+        top: 4px;
+        text-align: center;
+        left: 4px;
+        border-radius: 20px;
+        z-index: 9;
+    }
+    .block_close:before {
+        content: "";
+        border-top: 2px solid #000;
+        width: 12px;
+        margin: 9px auto;
+        display: block;
+    }
 </style>
 
 
 
 <script>
-    function tabs(value) {
-        $(".block_dots").removeClass("open");
-        $(".block_list").removeClass("open");
-        $(value).toggleClass("open");
-    }
-    $("#desktop-1").click(function() {tabs("#tab1");$(this).toggleClass("open");});
-    $("#desktop-2").click(function() {tabs("#tab2");$(this).toggleClass("open");});
-    $("#desktop-3").click(function() {tabs("#tab3");$(this).toggleClass("open");});
-    function taskbar (value) {
-        $("#" + value).addClass("open");
-        //alert("!");
-    }
-
- 
-    $("#tast_vnexpress").click(function() {
-        $("#frame_vnexpress").toggleClass("open");
-    });
-    
-    
-    $(".block_item").click(function() {
-        $(this).toggleClass("open");
-        var addItem = $(this).attr("id");
-        historyAdd(addItem);
-    });
-    /*
-    https://api.jquery.com/dblclick/
-    */
-    
-    // if (typeof(Storage) !== "undefined") {
-    // } else {
-    // document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
-    // }
-// ADD
-
-
-
-
-//localStorage.removeItem('myArray');
 
 function historyAdd (value){
     var history = localStorage.getItem('myArray');
@@ -1371,6 +1746,17 @@ function historyAdd (value){
         historyView ();
     }
 }
+function historyRemove (){
+    $(".block_close").click(function() {
+        var removeItem = $(this).attr('data-id');
+        var history = localStorage.getItem('myArray');
+        history = JSON.parse(history);
+        history.splice(history.indexOf(removeItem), 1);
+        localStorage.setItem('myArray', JSON.stringify(history));
+        historyView ();
+    });
+}
+
 function historyView (){
     var array = localStorage.getItem('myArray');
     array = JSON.parse(array);
@@ -1378,9 +1764,10 @@ function historyView (){
     for (var i = 0; i < array.length; i++){
         var srcImg = $("#"+array[i]+" img").attr('src');
         var srcLink = $("#"+array[i]+" a").attr('href');
-        localhtml += "<li class='block_task'><a href='" + srcLink + "' target='_blank'><img src='" + srcImg + "'></li>";
+        localhtml += "<li class='block_task'><span class='block_close' data-id='" + array[i] + "'></span><a href='" + srcLink + "' target='_blank'><img src='" + srcImg + "'></a></li>";
     }
     document.getElementById('taskbarData').innerHTML = localhtml;
+    historyRemove ();
 }
 
 if (typeof(Storage) !== 'undefined') {
@@ -1403,6 +1790,59 @@ if (typeof(Storage) !== 'undefined') {
 } else {
     alert('LocalStorage không hỗ trợ trên trình duyệt này!!');
 }
+
+function tabs(value) {
+    $(".block_dots").removeClass("open");
+    $(".block_list").removeClass("open");
+    $(value).toggleClass("open");
+}
+$("#desktop-1").click(function() {tabs("#tab1");$(this).toggleClass("open");});
+$("#desktop-2").click(function() {tabs("#tab2");$(this).toggleClass("open");});
+$("#desktop-3").click(function() {tabs("#tab3");$(this).toggleClass("open");});
+function taskbar (value) {
+    $("#" + value).addClass("open");
+    //alert("!");
+}
+
+$("#tast_vnexpress").click(function() {
+    $("#frame_vnexpress").toggleClass("open");
+});
+
+$(".block_item").click(function() {
+    $(this).toggleClass("open");
+    var addItem = $(this).attr("id");
+    historyAdd(addItem);
+});
+$(".block_items").click(function() {
+    var addItem = $(this).attr("id");
+    historyAdd(addItem);
+});
+// $(".block_close").click(function() {
+//     var removeItem = $(this).attr('id2');
+//     var history = localStorage.getItem('myArray');
+//     history = JSON.parse(history);
+//     history.splice(history.indexOf(removeItem), 1);
+//     localStorage.setItem('myArray', JSON.stringify(history));
+// });
+
+    /*
+    https://api.jquery.com/dblclick/
+    */
+    
+    // if (typeof(Storage) !== "undefined") {
+    // } else {
+    // document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+    // }
+// ADD
+
+
+
+
+//localStorage.removeItem('myArray');
+
+
+
+
 
 </script>
 
