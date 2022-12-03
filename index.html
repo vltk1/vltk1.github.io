@@ -202,8 +202,8 @@ nav {
     text-decoration: none;
 }
 .block_icon > img, .block_task img {
-    height: 7vw;
-    width: 7vw;
+    height: 6vw;
+    width: 6vw;
     max-width: 64px;
     max-height: 64px;
     border-width: 0;
@@ -254,7 +254,7 @@ nav {
 <main>
     <div class="block_list open" id="tab1">
 
-        <div class="block_row">
+        <div class="block_row" id="p1">
             <ul class="block_group">
                 <li class="block_item" id="google">
                     <a class="block_link" href="https://www.google.com/" target="_blank">
@@ -461,7 +461,7 @@ nav {
             <h4 class="block_category">Tin tức</h4>
         </div>
 
-        <div class="block_row">
+        <div class="block_row" id="p2">
             <ul class="block_group">
                 <li class="block_item" id="shopee">
                     <a class="block_link" href="https://shopee.vn/" target="_blank">
@@ -712,7 +712,7 @@ nav {
             <h4 class="block_category">Xổ số</h4>
         </div>
 
-        <div class="block_row">
+        <div class="block_row" id="p3">
             <ul class="block_group">
                 <li class="block_item" id="chotot">
                     <a class="block_link" href="https://www.chotot.com/" target="_blank">
@@ -960,7 +960,7 @@ nav {
             <h4 class="block_category">Học trực tuyến</h4>
         </div>
 
-        <div class="block_row">
+        <div class="block_row" id="p4">
             <ul class="block_group">
                 <li class="block_item" id="truyenfull">
                     <a class="block_link" href="https://truyenfull.vn/" target="_blank">
@@ -1151,7 +1151,7 @@ nav {
             <h4 class="block_category">Bóng đá</h4>
         </div>
 
-        <div class="block_row">
+        <div class="block_row" id="p5">
             <ul class="block_group">
                 
                 
@@ -1648,7 +1648,7 @@ nav {
         </li>
       
     </div>
-
+  
     <div class="block_list" id="tab2">
         <li class="block_item">
             <figure class="block_icon">
@@ -1676,23 +1676,32 @@ nav {
 
 
 </main>
-<footer>
-    <nav>
-        <ol class="block_tab">
-            <li class="block_dots open" id="desktop-1">O</li>
-            <li class="block_dots" id="desktop-2">O</li>
-            <li class="block_dots" id="desktop-3">O</li>
-        </ol>
-    </nav>
-    <div>
+<nav>
     <ul id="taskbarData" class="block_taskbar"></ul>
-</div>
+    <ol class="block_tab">
+        <li class="block_dots open"><a href="#p1" class="scrollLink">O</a></li>
+        <li class="block_dots"><a href="#p2" class="scrollLink">O</a></li>
+        <li class="block_dots"><a href="#p3" class="scrollLink">O</a></li>
+    </ol>
+</nav>
+<footer>
+    <!-- footer -->
 </footer>
 <style>
+    nav {
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        background-color: rgba(0, 0, 0, .3);
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+    }
     .block_taskbar {
         list-style: none;
         display: flex;
-        padding-left: 50px;
+        flex-direction: column;
     }
     .block_task {
         display: flex;
@@ -1798,6 +1807,7 @@ function tabs(value) {
     $(".block_list").removeClass("open");
     $(value).toggleClass("open");
 }
+
 $("#desktop-1").click(function() {tabs("#tab1");$(this).toggleClass("open");});
 $("#desktop-2").click(function() {tabs("#tab2");$(this).toggleClass("open");});
 $("#desktop-3").click(function() {tabs("#tab3");$(this).toggleClass("open");});
@@ -1806,19 +1816,32 @@ function taskbar (value) {
     //alert("!");
 }
 
-$("#tast_vnexpress").click(function() {
-    $("#frame_vnexpress").toggleClass("open");
+
+    $("#tast_vnexpress").click(function() {
+        $("#frame_vnexpress").toggleClass("open");
+    });
+
+    $(".block_item").click(function() {
+        $(this).toggleClass("open");
+        var addItem = $(this).attr("id");
+        historyAdd(addItem);
+    });
+    $(".block_items").click(function() {
+        var addItem = $(this).attr("id");
+        historyAdd(addItem);
+    });
+    $(".block_dots").click(function() {
+        $(".block_dots").removeClass("open");
+        $(this).toggleClass("open");
+    });
+    $(document).ready(function(){
+    
+    $( "a.scrollLink" ).click(function( event ) {
+        event.preventDefault();
+        $("main").animate({ scrollTop: $($(this).attr("href")).offset().top }, 500);
+    });
 });
 
-$(".block_item").click(function() {
-    $(this).toggleClass("open");
-    var addItem = $(this).attr("id");
-    historyAdd(addItem);
-});
-$(".block_items").click(function() {
-    var addItem = $(this).attr("id");
-    historyAdd(addItem);
-});
 // $(".block_close").click(function() {
 //     var removeItem = $(this).attr('id2');
 //     var history = localStorage.getItem('myArray');
@@ -1841,8 +1864,6 @@ $(".block_items").click(function() {
 
 
 //localStorage.removeItem('myArray');
-
-
 
 
 
