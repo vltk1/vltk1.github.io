@@ -202,7 +202,7 @@ footer {
 }
 nav {
     width: 100%;
-    padding-bottom: 1vw
+    padding-bottom: 1vw;
 }
 .block_task.open {
     background-color: red;
@@ -230,9 +230,9 @@ nav {
     background-color: rgba(0, 0, 0, 0.18);
     display: flex;
     flex-wrap: wrap;
-    max-width: 250px;
+    max-width: 280px;
     max-height: 250px;
-    width: 18vw;
+    width: 14vw;
     /* height: 15.8vw; */
     border-radius: 1.2vw;
     justify-content: space-between;
@@ -875,7 +875,7 @@ nav {
                 <li class="block_item" id="alobacsi">
                     <a class="block_link" href="https://alobacsi.com/" target="_blank">
                         <figure class="block_icon">
-                            <img src="./i/15minutes4me.jpg" alt="">
+                            <img src="./i/alobacsi.jpg" alt="">
                             <figcaption class="block_name">alobacsi</figcaption>
                         </figure>
                     </a>
@@ -988,19 +988,19 @@ nav {
                         </figure>
                     </a>
                 </li>
-                <li class="block_item" id="truyengihotne">
-                    <a class="block_link" href="https://truyengihotne.net/" target="_blank">
+                <li class="block_item" id="wattpad">
+                    <a class="block_link" href="https://www.wattpad.com/" target="_blank">
                         <figure class="block_icon">
-                            <img src="./i/truyengihotne.jpg" alt="">
-                            <figcaption class="block_name">truyengihotne</figcaption>
+                            <img src="./i/wattpad.jpg" alt="">
+                            <figcaption class="block_name">Wattpad</figcaption>
                         </figure>
                     </a>
                 </li>
                 <li class="block_item" id="dtruyen">
-                    <a class="block_link" href="https://dtruyen.com/" target="_blank">
+                    <a class="block_link" href="https://ebook.waka.vn/" target="_blank">
                         <figure class="block_icon">
-                            <img src="./i/truyengihotne.jpg" alt="">
-                            <figcaption class="block_name">dtruyen</figcaption>
+                            <img src="./i/waka.jpg" alt="">
+                            <figcaption class="block_name">Waka</figcaption>
                         </figure>
                     </a>
                 </li>
@@ -1053,7 +1053,7 @@ nav {
                 <li class="block_item" id="vneconomy">
                     <a class="block_link" href="https://vneconomy.vn/" target="_blank">
                         <figure class="block_icon">
-                            <img src="./i/vneconomy.jpg" alt="">
+                            <img src="./i/vietnamnet.jpg" alt="">
                             <figcaption class="block_name">vietnamnet</figcaption>
                         </figure>
                     </a>
@@ -1683,6 +1683,26 @@ nav {
 </nav>
 
 <style>
+     /* width */
+     ::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, .25);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    
     nav {
         display: flex;
         flex-direction: column;
@@ -1692,6 +1712,8 @@ nav {
         top: 0;
         bottom: 0;
         left: 0;
+        overflow: hidden;
+        overflow-y: scroll;
     }
     .block_links {
         position: relative;
@@ -1722,6 +1744,8 @@ nav {
         align-items: center;
         width: 4vw;
         height: 4vw;
+        max-width: 64px;
+        max-height: 64px;
         cursor: pointer;
         position: relative;
         z-index: 8;
@@ -1729,8 +1753,10 @@ nav {
 
     }
     .block_task img {
-        width: 3.5vw;
-        height: 3.5vw;
+        width: 3.2vw;
+        height: 3.2vw;
+        max-width: 52px;
+        max-height: 52px;
     }
     .block_task:last-child {
         animation-name: open_taskbar;
@@ -1746,9 +1772,9 @@ nav {
         height: 20px;
         background-color: rgba(0,0,0, .4);
         position: absolute;
-        top: -6px;
+        top: -3px;
         text-align: center;
-        left: 1px;
+        left: 2px;
         border-radius: 20px;
         z-index: 9;
     }
