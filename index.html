@@ -1,7 +1,7 @@
 
 <html>
  <head>
-    <title>My Now Amazing Webpage</title>
+    <title>Menus - Top 100 trang web truy cập nhiều nhất.</title>
     <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,11 +65,11 @@ body {
     transition: background .4s ease-in-out;
 }
 .block_item, .block_sub, .block_task {
-    width: 7.5vw;
-    height: 7.5vw;
+    width: 7vw;
+    height: 7vw;
     max-height: calc(100vh/10);
-    min-width: 64px;
-    min-height: 80px;
+    /* min-width: 64px;
+    min-height: 80px; */
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -86,7 +86,7 @@ body {
 .block_items .block_icon > img {
     width: 100%;
     height: 100%;
-    border-radius: 8px;
+    border-radius: .4vw;
 }
 .block_more {
     width: 88vw;
@@ -128,18 +128,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-right: 1px solid #000;
-    width: 53px;
+    width: 100%;
 }
 .block_dots {
+    display: block;
     cursor: pointer;
-    border-left: 1px solid #000;
-    border-top: 1px solid #000;
-    border-bottom: 1px solid #000;
-    padding: 0 2px;
+    margin: 0 7px;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background-color: rgba(255,255,255,.6);
 }
 .block_dots.open {
-    background-color: #000;
+    background-color: #Fff;
 }
 .block_dots.open .block_links:before {
     background-color: #fff;
@@ -161,8 +162,8 @@ body {
     animation-duration: .45s;
 }
 .block_items {
-    width: 28px;
-    height: 28px;
+    width: 2vw;
+    height: 2vw;
     padding: 4px;
     max-height: calc(100vh/10);
     cursor: pointer;
@@ -179,6 +180,9 @@ main {
     position: relative;
     border-radius: 6px;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 header, footer {
     display: flex;
@@ -189,6 +193,8 @@ header {
     align-items: center;
 }
 footer {
+    position: absolute;
+    bottom: 10px;
     height: 5vh;
     justify-content: center;
     flex-wrap: wrap;
@@ -196,7 +202,7 @@ footer {
 }
 nav {
     width: 100%;
-    padding-bottom: 1vw;
+    padding-bottom: 1vw
 }
 .block_task.open {
     background-color: red;
@@ -209,32 +215,33 @@ nav {
     text-decoration: none;
 }
 .block_icon > img, .block_task img {
-    height: 5vw;
-    width: 5vw;
-    max-width: 80px;
-    max-height: 80px;
+    max-width: 72px;
+    max-height: 72px;
+    width: 4.5vw;
+    height: 4.5vw;
     border-width: 0;
     box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
     border-radius: 13px;
-    background-color: #fff;
 }
 .block_row {
-    margin: 0 2vw 1vw;
+    margin: 0 2vw 2.4vw;
 }
 .block_group {
     background-color: rgba(0, 0, 0, 0.18);
     display: flex;
     flex-wrap: wrap;
-    max-width: 200px;;
-    width: 15vw;
-    border-radius: 15px;
+    max-width: 250px;
+    max-height: 250px;
+    width: 18vw;
+    /* height: 15.8vw; */
+    border-radius: 1.2vw;
     justify-content: space-between;
     align-items: center;
     overflow: hidden;
 }
 .block_category {
     text-align: center;
-    padding: 10px;
+    padding: 14px 0;
     font-weight: 600;
 }
 .block_team {
@@ -242,8 +249,8 @@ nav {
     flex-wrap: wrap;
     justify-content: space-between;
     align-content: space-between;
-    width: 72px;
-    height: 72px;
+    width: 5.4vw;
+    height: 5.4vw;
     position: relative;
     top: -10px;
     border-radius: 6px;
@@ -259,9 +266,9 @@ nav {
     
 </header>
 <main>
-    <div class="block_list open" id="tab1">
+    <div class="block_list open" id="tab01">
 
-        <div class="block_row" id="p1">
+        <div class="block_row">
             <ul class="block_group">
                 <li class="block_item" id="google">
                     <a class="block_link" href="https://www.google.com/" target="_blank">
@@ -275,7 +282,7 @@ nav {
                     <a class="block_link" href="https://www.bing.com/" target="_blank">
                         <figure class="block_icon">
                             <img src="./i/bing.jpg" alt="">
-                            <figcaption class="block_name">bing</figcaption>
+                            <figcaption class="block_name">Bing</figcaption>
                         </figure>
                     </a>
                 </li>
@@ -283,7 +290,7 @@ nav {
                     <a class="block_link" href="https://vn.yahoo.com/" target="_blank">
                         <figure class="block_icon">
                             <img src="./i/yahoo.jpg" alt="">
-                            <figcaption class="block_name">yahoo</figcaption>
+                            <figcaption class="block_name">Yahoo</figcaption>
                         </figure>
                     </a>
                 </li>
@@ -291,7 +298,7 @@ nav {
                     <a class="block_link" href="https://duckduckgo.com/" target="_blank">
                         <figure class="block_icon">
                             <img src="./i/duckduckgo.jpg" alt="">
-                            <figcaption class="block_name">duckduckgo</figcaption>
+                            <figcaption class="block_name">Duckduckgo</figcaption>
                         </figure>
                     </a>
                 </li>
@@ -305,7 +312,7 @@ nav {
                     <a class="block_link" href="https://www.instagram.com/" target="_blank">
                         <figure class="block_icon">
                             <img src="./i/intergram.jpg" alt="">
-                            <figcaption class="block_name">instagram</figcaption>
+                            <figcaption class="block_name">Instagram</figcaption>
                         </figure>
                     </a>
                 </li>
@@ -313,7 +320,7 @@ nav {
                     <a class="block_link" href="https://www.facebook.com/" target="_blank">
                         <figure class="block_icon">
                             <img src="./i/facebook.jpg" alt="">
-                            <figcaption class="block_name">facebook</figcaption>
+                            <figcaption class="block_name">Facebook</figcaption>
                         </figure>
                     </a>
                 </li>
@@ -321,7 +328,7 @@ nav {
                     <a class="block_link" href="https://chat.zalo.me/" target="_blank">
                         <figure class="block_icon">
                             <img src="./i/zalo.png" alt="">
-                            <figcaption class="block_name">zalo</figcaption>
+                            <figcaption class="block_name">Zalo</figcaption>
                         </figure>
                     </a>
                 </li>
@@ -338,7 +345,7 @@ nav {
                         <li class="block_items" id="frame_vnexpress">
                             <a class="block_link" href="https://www.messenger.com/" target="_blank">
                                 <figure class="block_icon">
-                                    <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
+                                    <img src="./i/messenger.jpg" alt="">
                                     <!-- <figcaption class="block_name">messenger</figcaption> -->
                                 </figure>
                             </a>
@@ -365,12 +372,13 @@ nav {
             </ul>
             <h4 class="block_category">Mạng Xã hội</h4>
         </div>
+
         <div class="block_row">
             <ul class="block_group">
                 <li class="block_item" id="youtube">
                     <a class="block_link" href="https://www.youtube.com/" target="_blank">
                         <figure class="block_icon">
-                            <img src="./i/youtube.png" alt="">
+                            <img src="./i/youtube.jpg" alt="">
                             <figcaption class="block_name">Youtube</figcaption>
                         </figure>
                     </a>
@@ -387,7 +395,7 @@ nav {
                     <a class="block_link" href="https://www.bilibili.com/" target="_blank">
                         <figure class="block_icon">
                             <img src="./i/bilibili.jpg" alt="">
-                            <figcaption class="block_name">bilibili</figcaption>
+                            <figcaption class="block_name">Bilibili</figcaption>
                         </figure>
                     </a>
                 </li>
@@ -395,7 +403,7 @@ nav {
                     <a class="block_link" href=" https://www.dailymotion.com/vn" target="_blank">
                         <figure class="block_icon">
                             <img src="./i/dailymotion.jpg" alt="">
-                            <figcaption class="block_name">dailymotion</figcaption>
+                            <figcaption class="block_name">Dailymotion</figcaption>
                         </figure>
                     </a>
                 </li>
@@ -450,14 +458,14 @@ nav {
                         <li class="block_items" id="baomoi">
                             <a class="block_link" href="https://baomoi.com/" target="_blank">
                                 <figure class="block_icon">
-                                    <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
+                                    <img src="./i/baomoi.jpg" alt="">
                                 </figure>
                             </a>
                         </li>
                         <li class="block_items" id="tuoitre">
                             <a class="block_link" href="https://tuoitre.vn/" target="_blank">
                                 <figure class="block_icon">
-                                    <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
+                                    <img src="./i/tuoitre.jpg" alt="">
                                 </figure>
                             </a>
                         </li>
@@ -468,21 +476,21 @@ nav {
             <h4 class="block_category">Tin tức</h4>
         </div>
 
-        <div class="block_row" id="p2">
+        <div class="block_row">
             <ul class="block_group">
                 <li class="block_item" id="shopee">
                     <a class="block_link" href="https://shopee.vn/" target="_blank">
                         <figure class="block_icon">
-                            <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
-                            <figcaption class="block_name">shopee</figcaption>
+                            <img src="./i/shopee.jpg" alt="">
+                            <figcaption class="block_name">Shopee</figcaption>
                         </figure>
                     </a>
                 </li>
                 <li class="block_item" id="lazada">
                     <a class="block_link" href="https://www.lazada.vn/" target="_blank">
                         <figure class="block_icon">
-                            <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
-                            <figcaption class="block_name">lazada</figcaption>
+                            <img src="./i/lazada.jpg" alt="">
+                            <figcaption class="block_name">Lazada</figcaption>
                         </figure>
                     </a>
                 </li>
@@ -490,8 +498,8 @@ nav {
                 <li class="block_item" id="frame_vnexpress">
                     <a class="block_link" href="https://tiki.vn/" target="_blank">
                         <figure class="block_icon">
-                            <img src="https://cdnweb.dantri.com.vn/dist/static-logo.1-0-1.329fb29fe0ea34cca545.svg" alt="">
-                            <figcaption class="block_name">tiki</figcaption>
+                            <img src="./i/tiki.jpg" alt="">
+                            <figcaption class="block_name">Tiki</figcaption>
                         </figure>
                     </a>
                 </li>
@@ -507,21 +515,21 @@ nav {
                         <li class="block_items" id="iebay">
                             <a class="block_link" href="https://www.ebay.com/" target="_blank">
                                 <figure class="block_icon">
-                                    <img src="./i/iebay.jpg" alt="">
+                                    <img src="./i/ebay.jpg" alt="">
                                 </figure>
                             </a>
                         </li>
                         <li class="block_items" id="thegioididong">
                             <a class="block_link" href="https://www.thegioididong.com/" target="_blank">
                                 <figure class="block_icon">
-                                    <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
+                                    <img src="./i/thegioididong.jpg" alt="">
                                 </figure>
                             </a>
                         </li>
                         <li class="block_items" id="bachhoaxanh">
                             <a class="block_link" href="https://www.bachhoaxanh.com/" target="_blank">
                                 <figure class="block_icon">
-                                    <img src="https://3-stc-laban.zdn.vn/largeicons/fast.accesstrade.com.vn-1524554882.jpg" alt="">
+                                    <img src="./i/bachhoaxanh.jpg" alt="">
                                 </figure>
                             </a>
                         </li>
@@ -536,24 +544,24 @@ nav {
                 <li class="block_item" id="agoda">
                     <a class="block_link" href="https://www.agoda.com/vi-vn/" target="_blank">
                         <figure class="block_icon">
-                            <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
-                            <figcaption class="block_name">agoda</figcaption>
+                            <img src="./i/agoda.jpg" alt="">
+                            <figcaption class="block_name">Agoda</figcaption>
                         </figure>
                     </a>
                 </li>
                 <li class="block_item" id="begodi">
                     <a class="block_link" href="https://www.begodi.vn/" target="_blank">
                         <figure class="block_icon">
-                            <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
-                            <figcaption class="block_name">begodi</figcaption>
+                            <img src="./i/begodi.jpg" alt="">
+                            <figcaption class="block_name">Begodi</figcaption>
                         </figure>
                     </a>
                 </li>
                 <li class="block_item" id="booking">
                     <a class="block_link" href="https://www.booking.com/" target="_blank">
                         <figure class="block_icon">
-                            <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
-                            <figcaption class="block_name">booking</figcaption>
+                            <img src="./i/booking.jpg" alt="">
+                            <figcaption class="block_name">Booking</figcaption>
                         </figure>
                     </a>
                 </li>
@@ -594,6 +602,68 @@ nav {
             <h4 class="block_category">Khách sạn & Resort</h4>
         </div>
 
+
+        <div class="block_row">
+            <ul class="block_group">
+                <li class="block_item" id="vtvgiaitri">
+                    <a class="block_link" href="https://www.vtvgiaitri.vn/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="./i/vtvgiaitri.jpg" alt="">
+                            <figcaption class="block_name">vtvgiaitri</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_item" id="hdviet">
+                    <a class="block_link" href="https://movies.hdviet.com/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="./i/hdviet.jpg" alt="">
+                            <figcaption class="block_name">hdviet</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_item" id="fptplay">
+                    <a class="block_link" href="https://fptplay.vn/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="./i/fptplay.jpg" alt="">
+                            <figcaption class="block_name">fptplay</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_sub">
+                    <ul class="block_team">
+                        <li class="block_items" id="vieon">
+                            <a class="block_link" href="https://vieon.vn/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/vieon.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="vivo">
+                            <a class="block_link" href="https://vivo.vn/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/vivo.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="phimmoichilli">
+                            <a class="block_link" href="https://phimmoichilli.net/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/phimmoichilli.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="dongphymz">
+                            <a class="block_link" href="https://dongphymz.net/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/dongphymz.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <h4 class="block_category">Xem phim</h4>
+        </div>
         <div class="block_row">
             <ul class="block_group">
                 <li class="block_item" id="miniclip">
@@ -656,7 +726,70 @@ nav {
             </ul>
             <h4 class="block_category">Game online</h4>
         </div>
+        </div>
+    <div class="block_list" id="tab02">
 
+        <div class="block_row">
+            <ul class="block_group">
+                <li class="block_item" id="chotot">
+                    <a class="block_link" href="https://www.chotot.com/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="./i/chotot.png" alt="">
+                            <figcaption class="block_name">Chợ Tốt</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_item" id="5giay">
+                    <a class="block_link" href="https://www.5giay.vn/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="./i/5giay.jpg" alt="">
+                            <figcaption class="block_name">5giay</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_item" id="vatgia">
+                    <a class="block_link" href="https://vatgia.com/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="./i/vatgia.jpg" alt="">
+                            <figcaption class="block_name">vatgia</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_sub">
+                    <ul class="block_team">
+                        <li class="block_items" id="nhattao">
+                            <a class="block_link" href="https://nhattao.com/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/nhattao.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="rongbay">
+                            <a class="block_link" href="https://rongbay.com/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/rongbay.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="muare">
+                            <a class="block_link" href="https://muare.vn/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/muare.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="muaban">
+                            <a class="block_link" href="https://muaban.net/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="./i/muaban.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <h4 class="block_category">Rao vặt</h4>
+        </div>
         <div class="block_row">
             <ul class="block_group">
                 <li class="block_item" id="daiphat">
@@ -719,129 +852,7 @@ nav {
             <h4 class="block_category">Xổ số</h4>
         </div>
 
-        <div class="block_row" id="p3">
-            <ul class="block_group">
-                <li class="block_item" id="chotot">
-                    <a class="block_link" href="https://www.chotot.com/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="./i/chotot.png" alt="">
-                            <figcaption class="block_name">Chợ Tốt</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="5giay">
-                    <a class="block_link" href="https://www.5giay.vn/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="./i/5giay.png" alt="">
-                            <figcaption class="block_name">5giay</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="vatgia">
-                    <a class="block_link" href="https://vatgia.com/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="./i/vatgia.png" alt="">
-                            <figcaption class="block_name">vatgia</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_sub">
-                    <ul class="block_team">
-                        <li class="block_items" id="nhattao">
-                            <a class="block_link" href="https://nhattao.com/" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="./i/nhattao.jpg" alt="">
-                                </figure>
-                            </a>
-                        </li>
-                        <li class="block_items" id="rongbay">
-                            <a class="block_link" href="https://rongbay.com/" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="./i/rongbay.jpg" alt="">
-                                </figure>
-                            </a>
-                        </li>
-                        <li class="block_items" id="muare">
-                            <a class="block_link" href="https://muare.vn/" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="./i/muare.jpg" alt="">
-                                </figure>
-                            </a>
-                        </li>
-                        <li class="block_items" id="muaban">
-                            <a class="block_link" href="https://muaban.net/" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="./i/muaban.jpg" alt="">
-                                </figure>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <h4 class="block_category">Rao vặt</h4>
-        </div>
-
-        <div class="block_row">
-            <ul class="block_group">
-                <li class="block_item" id="vtvgiaitri">
-                    <a class="block_link" href="https://www.vtvgiaitri.vn/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="./i/vtvgiaitri.jpg" alt="">
-                            <figcaption class="block_name">vtvgiaitri</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="hdviet">
-                    <a class="block_link" href="https://movies.hdviet.com/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="./i/hdviet.jpg" alt="">
-                            <figcaption class="block_name">hdviet</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="fptplay">
-                    <a class="block_link" href="https://fptplay.vn/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="./i/fptplay.jpg" alt="">
-                            <figcaption class="block_name">fptplay</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_sub">
-                    <ul class="block_team">
-                        <li class="block_items" id="motphimtv">
-                            <a class="block_link" href="https://motphimtv.me/" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="./i/motphimtv.jpg" alt="">
-                                </figure>
-                            </a>
-                        </li>
-                        <li class="block_items" id="vivo">
-                            <a class="block_link" href="https://vivo.vn/" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="./i/vivo.jpg" alt="">
-                                </figure>
-                            </a>
-                        </li>
-                        <li class="block_items" id="phimmoichilli">
-                            <a class="block_link" href="https://phimmoichilli.net/" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="./i/phimmoichilli.jpg" alt="">
-                                </figure>
-                            </a>
-                        </li>
-                        <li class="block_items" id="dongphymz">
-                            <a class="block_link" href="https://dongphymz.net/" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="./i/dongphymz.jpg" alt="">
-                                </figure>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <h4 class="block_category">Xem phim</h4>
-        </div>
+        
 
         <div class="block_row">
             <ul class="block_group">
@@ -1128,6 +1139,7 @@ nav {
             </ul>
             <h4 class="block_category">Google</h4>
         </div>
+
         <div class="block_row">
             <ul class="block_group">
                 <li class="block_item" id="frame_vnexpress">
@@ -1157,8 +1169,10 @@ nav {
             </ul>
             <h4 class="block_category">Bóng đá</h4>
         </div>
+    </div>
 
-        <div class="block_row" id="p5">
+    <div class="block_list" id="tab03">
+        <div class="block_row">
             <ul class="block_group">
                 
                 
@@ -1655,51 +1669,25 @@ nav {
         </li>
       
     </div>
-  
-    <div class="block_list" id="tab2">
-        <li class="block_item">
-            <figure class="block_icon">
-                <img src="http://vietansoft.com.vn/img/upload/link/vnexpress.png" alt="">
-            </figure>
-            <div class="block_more">
-                <iframe class="block_frame" src="https://www.hotespa.net/dormyinn/"></iframe>
-            </div>
-        </li>
-        <li class="block_item">
-            <figure class="block_icon">
-                <img src="http://vietansoft.com.vn/img/upload/link/vnexpress.png" alt="">
-            </figure>
-            <iframe class="block_more" id="vnexpress" src="https://www.hotespa.net/dormyinn/"></iframe>
-        </li>
-        <li class="block_item">
-            <figure class="block_icon">
-                <img src="http://vietansoft.com.vn/img/upload/link/vnexpress.png" alt="">
-            </figure>
-            <iframe class="block_more" id="vnexpress" src="https://www.hotespa.net/dormyinn/"></iframe>
-        </li>
     </div>
-
-
-
-
+    <footer>
+        <ol class="block_tab">
+            <li class="block_dots open" id="desktop1"></li>
+            <li class="block_dots" id="desktop2"></li>
+            <li class="block_dots" id="desktop3"></li>
+        </ol>
+    </footer>
 </main>
 <nav>
     <ul id="taskbarData" class="block_taskbar"></ul>
-    <ol class="block_tab">
-        <li class="block_dots open"><a href="#p1" class="block_links"></a></li>
-        <li class="block_dots"><a href="#p2" class="block_links"></a></li>
-        <li class="block_dots"><a href="#p3" class="block_links"></a></li>
-    </ol>
 </nav>
-<footer>
-    <!-- footer -->
-</footer>
+
 <style>
     nav {
         display: flex;
         flex-direction: column;
         width: auto;
-        background-color: rgba(0, 0, 0, .3);
+        background-color: rgba(0, 0, 0, .2);
         position: fixed;
         top: 0;
         bottom: 0;
@@ -1726,17 +1714,23 @@ nav {
         list-style: none;
         display: flex;
         flex-direction: column;
+        padding-top: 1vw;
     }
     .block_task {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 64px;
-        height: 64px;
+        width: 4vw;
+        height: 4vw;
         cursor: pointer;
         position: relative;
         z-index: 8;
+        padding: 6px 8px;
 
+    }
+    .block_task img {
+        width: 3.5vw;
+        height: 3.5vw;
     }
     .block_task:last-child {
         animation-name: open_taskbar;
@@ -1752,9 +1746,9 @@ nav {
         height: 20px;
         background-color: rgba(0,0,0, .4);
         position: absolute;
-        top: 4px;
+        top: -6px;
         text-align: center;
-        left: 4px;
+        left: 1px;
         border-radius: 20px;
         z-index: 9;
     }
@@ -1832,9 +1826,8 @@ function tabs(value) {
     $(value).toggleClass("open");
 }
 
-$("#desktop-1").click(function() {tabs("#tab1");$(this).toggleClass("open");});
-$("#desktop-2").click(function() {tabs("#tab2");$(this).toggleClass("open");});
-$("#desktop-3").click(function() {tabs("#tab3");$(this).toggleClass("open");});
+
+
 function taskbar (value) {
     $("#" + value).addClass("open");
     //alert("!");
@@ -1854,16 +1847,17 @@ function taskbar (value) {
         var addItem = $(this).attr("id");
         historyAdd(addItem);
     });
-    $(".block_dots").click(function() {
-        $(".block_dots").removeClass("open");
-        $(this).toggleClass("open");
-    });
-    $(document).ready(function(){
+    $("#desktop1").click(function() {tabs("#tab01");$(this).toggleClass("open");});
+    $("#desktop2").click(function() {tabs("#tab02");$(this).toggleClass("open");});
+    $("#desktop3").click(function() {tabs("#tab03");$(this).toggleClass("open");});
+
     
-    $( "a.block_links" ).click(function( event ) {
-        event.preventDefault();
-        $("main").animate({ scrollTop: $($(this).attr("href")).offset().top }, 500);
-    });
+    $(document).ready(function(){
+      
+        $( "a.block_links" ).click(function( event ) {
+            event.preventDefault();
+            $("main").animate({ scrollTop: $($(this).attr("href")).offset().top }, 500);
+        });
 });
 
 // $(".block_close").click(function() {
