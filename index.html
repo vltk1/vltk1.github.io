@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Menus - Top 100 trang web truy cập nhiều nhất.</title>
     <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
@@ -14,16 +13,17 @@
     margin: 0;
     padding: 0;
 }
-
-/* @keyframes taskbar {
+    #wallpaper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+ @keyframes taskbar {
     50% {
-		width: 80%;
-        height: 80%;
-        opacity: 0.8;
-        transform: rotate3d(0,1,0,5deg);
+		width: 94%;
+        height: 90%;
 	}
-    to{transform:translate3d(0,0,0);opacity:1}
-} */
+} 
 
 
 @keyframes gradient {
@@ -44,10 +44,21 @@ body {
     font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-seri;
     height: 100vh;
 }
-/* @keyframes open {
-  from {opacity: .5;transform: translate3d(-20vw, 0px, 0px);}
-  to {opacity: 1;transform: translate3d(0px, 0px, 0px);}
-} */
+ @keyframes open {
+    0% {
+		opacity: 1;
+        transform: scale(1);
+	}
+	50% {
+        opacity: 0;
+        transform: scale(0.8);
+        transform: translate3d( 0, 1vw , 0px);
+	}
+	100% {
+		opacity: 1;
+        transform: scale(1);
+	}
+} 
 
 @keyframes open_taskbar {
   from {transform: translate3d(-5px, 0px, 0px);}
@@ -211,16 +222,28 @@ main {
     background-size: cover;
     background-color: rgba(0, 0, 0, .5);
     background-size: 130% 130%;
-	animation: gradient 60s ease infinite;
+
+	animation: gradient 80s ease infinite;
+    /*
     transform: rotateX(0) rotateY(0) translateZ(0) !important;
     transition: transform 500ms ease, opacity 500ms linear 500ms !important; 
+*/
     
 }
+    main.a1 {
+        background-image: url("./i/bg10.jpg");
+    }
+    main.a2 {
+        background-image: url("./i/bg8.jpg");
+    }
+    main.a3 {
+        background-image: url("./i/bg2.jpg");
+    }
 main.open {
     animation-name: taskbar;
-    animation-duration: 1s;
-    transition: transform 500ms ease, opacity  500ms linear 0ms; 
-    transform: rotateX(-4deg) rotateY(-10deg) rotateZ(0) translateZ(0) translateY(2%) translateX(-2%) scale(0.95) !important;
+    animation-duration: 0.8s;
+    /*transition: transform 500ms ease, opacity  500ms linear 0ms; 
+    transform: rotateX(-4deg) rotateY(-10deg) rotateZ(0) translateZ(0) translateY(2%) translateX(-2%) scale(0.95) !important;*/
 }
 header, footer {
     display: flex;
@@ -1935,37 +1958,40 @@ else
 {
     myitem.attachEvent("onmousewheel", MouseWheelHandler);
 }
- 
+
 function MouseWheelHandler(e)
 {
     // cross-browser wheel delta
     var e = window.event || e; // old IE support
     var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
     var num = event.deltaY;
-
-    setTimeout(() => {
+    console.info(num);
+    
         if (num > 0) {
-            $(".block_dots").removeClass("open");
             if(n > 2) {
-                n = 1;
-            } else {
-                n++;
-            }
-            // $("#desktop"+n).addClass("open");
-            $("#desktop"+n).trigger("click");
-        }
-        if (num < 0) {
-            $(".block_dots").removeClass("open");
-            if(n <= 1) {
                 n = 3;
             } else {
-                n--;
+//                setTimeout(() => {
+                n++;
+                 $(".block_dots").removeClass("open");
+                 $("#desktop"+n).trigger("click");
+//                     }, 500);
             }
             // $("#desktop"+n).addClass("open");
-            $("#desktop"+n).trigger("click");
         }
-    }, 350);
-    return false;
+        if (num < 0) {
+            if(n <= 1) {
+                n = 1;
+            } else {
+                n--;
+                $(".block_dots").removeClass("open");
+                $("#desktop"+n).trigger("click");
+            }
+            // $("#desktop"+n).addClass("open");
+            
+        }
+   
+   
 }
 
 function opentask() {
@@ -2028,20 +2054,24 @@ if (typeof(Storage) !== 'undefined') {
     alert('LocalStorage không hỗ trợ trên trình duyệt này!!');
 }
 
-function tabs(value) {
+function tabs(value, numa) {
     $(".block_dots").removeClass("open");
     $(".block_list").removeClass("open");
+    $("#main").removeClass("a1");
+    $("#main").removeClass("a2");
+    $("#main").removeClass("a3");
     $("#main").addClass("open");
+    $("#main").addClass(numa);
     $(value).toggleClass("open");
     setTimeout(opentask, 600);
 }
 
 
 
-function taskbar (value) {
-    $("#" + value).addClass("open");
-    //alert("!");
-}
+    function taskbar (value) {
+        $("#" + value).addClass("open");
+        //alert("!");
+    }
 
 
     $("#tast_vnexpress").click(function() {
@@ -2057,9 +2087,9 @@ function taskbar (value) {
         var addItem = $(this).attr("id");
         historyAdd(addItem);
     });
-    $("#desktop1").click(function() {tabs("#tab01");$(this).toggleClass("open");});
-    $("#desktop2").click(function() {tabs("#tab02");$(this).toggleClass("open");});
-    $("#desktop3").click(function() {tabs("#tab03");$(this).toggleClass("open");});
+    $("#desktop1").click(function() {tabs("#tab01","a1");$(this).toggleClass("open");});
+    $("#desktop2").click(function() {tabs("#tab02","a2");$(this).toggleClass("open");});
+    $("#desktop3").click(function() {tabs("#tab03","a3");$(this).toggleClass("open");});
 
     $("#menu_desktop1").click(function() {tabs("#tab01");$(".block_photo").removeClass("open");$(this).toggleClass("open");$("#menu").toggleClass("open");});
     $("#menu_desktop2").click(function() {tabs("#tab02");$(".block_photo").removeClass("open");$(this).toggleClass("open");$("#menu").toggleClass("open");});
