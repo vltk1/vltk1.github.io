@@ -489,7 +489,7 @@ img {
         
     }
     .block_clock {
-        display: inline-block;
+        display: flex;
         background-color: rgba(0, 0, 0, .8); 
         border-radius: 50px;
         margin: 5px auto 0;
@@ -509,6 +509,92 @@ img {
         justify-content: center;
         margin-right: 15px;
     }
+    .block_economic {
+        margin-left: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #economic {
+        background-image: url("i/notification.png");
+        width: 16px;
+        height: 14px;
+        display: block;
+        background-size: 100% 100%;
+        cursor: pointer;
+    }
+    .block_dropdown, .block_frame {
+        width: 600px;
+        height: 400px;
+        display: none;
+        flex-wrap: wrap;
+        background-color: #fff;
+        border: 1px solid #555;
+        position: absolute;
+        list-style: none;
+        border-radius: 10px;
+        top: 25px;
+        margin-left: -220px;
+        padding: 22px 0 0 0;
+        box-shadow: 5px 5px 20px rgb(29 27 27);
+        z-index: 991;
+        overflow: hidden;
+    }
+    
+    .block_frame iframe {
+        display: none;
+    }
+    .block_frame iframe.open {
+        display: block;
+    }
+    .block_dropdown.open {
+        display: flex;
+    }
+    .block_frame.open {
+        display: block;
+    }
+    .block_dropdown-item{
+        text-decoration: none;
+        line-height: 1.3;
+        font-size: 12px;
+        width: 32%;
+        border: 1px solid #000;
+        display: flex;
+        background-color: gray;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+    .block_dropdown-item.open {
+        display: block;
+    }
+    .block_bar {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        display: flex;
+    }
+    .block_barbox {
+        width: 16px;
+        height: 16px;
+        border-radius: 20px;
+        display: inline-block;
+        background-color: #333;
+        margin: 2px;
+        cursor: pointer;
+    }
+    #block_back {
+        background-color: #f7ac15;
+        border: 1px solid #f7ac15;
+    }
+    #block_zoom {
+        background-color: #4cb429;
+        border: 1px solid #5db938;
+    }
+    #block_delete {
+        background-color: #f36039;
+        border: 1px solid #b26463;
+    }
 </style>
     <div class="block_top">
         <div class="block_clock">
@@ -520,6 +606,36 @@ img {
                 <li id="sec"></li>
             </ul>
             <div id="Date"></div>
+            <div class="block_economic">
+                <i id="economic"></i>
+                <div class="block_bar">
+                    <i class="block_barbox" id="block_back">-</i>
+                    <i class="block_barbox" id="block_zoom">O</i>
+                    <i class="block_barbox" id="block_delete">X</i>
+                </div>
+                <ul class="block_dropdown" id="dropdown">
+                    <li class="block_dropdown-item" onclick="frame('frame_gold');">Bảng giá vàng</li>
+                    <li class="block_dropdown-item" onclick="frame('frame_oilfuel');">Xăng dầu</li>
+                    <li class="block_dropdown-item" onclick="frame('frame_convert');">Công cụ chuyển đổi</li>
+                    <li class="block_dropdown-item" onclick="frame('frame_rate');">Tỷ giá hối đoái</li>
+                    <li class="block_dropdown-item" onclick="frame('frame_currency');">Ngoại tệ</li>
+                    <li class="block_dropdown-item" onclick="frame('frame_money');">Tiền ảo</li>
+                    <li class="block_dropdown-item" onclick="frame('frame_deposit');">Lãi suất Gửi</li>
+                    <li class="block_dropdown-item" onclick="frame('frame_interest');">Lãi suất Vay</li>
+                    <li class="block_dropdown-item" onclick="frame('frame_market');">Giá Cả thị trường</li>
+                </ul>
+                <div class="block_frame" id="frame_economic">
+                    <iframe id="frame_gold" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/vang?bgheader=b53e3e&colorheader=ffffff&padding=5&fontsize=13&hienthi=sjc,doji,bank,pnj,ngochai&"></iframe>
+                    <iframe id="frame_oilfuel" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/xang-dau?bgheader=b81414&colorheader=ffffff&padding=6&fontsize=13&hienthi=trongnuoc,thegioi&"></iframe>
+                    <iframe id="frame_convert" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/json/cong-cu-chuyen-doi-tien-te?maukhungketqua=dc1818&mauchuketqua=ffffff&sizechuketqua=30&fontsize=13&border=1&hienthamkhao=1&hienthi=aud,cad,chf,cny,dkk&"></iframe>
+                    <iframe id="frame_rate" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/tygia?bgheader=ff5722&colorheader=ffffff&padding=5&fontsize=13&hienthi=VietinBank,BIDV,MBBank,Sacombank,Techcombank,Vietcombank,ABBANK,BVBANK,PVCOMBank,VCCB,LIENVIETPOSTBANK,CBBank,DongA,GPBANK,HLBANK&"></iframe>
+                    <iframe id="frame_currency" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/ngoaite?bgheader=333333&colorheader=ffffff&padding=5&fontsize=13&hienthi=aud,cad,chf,cny,dkk,eur,gbp,hkd&"></iframe>
+                    <iframe id="frame_money" frameborder="0" width="100%" height="100%" src=""></iframe>
+                    <iframe id="frame_deposit" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/laisuat?bgheader=6f42c1&colorheader=ffffff&padding=5&fontsize=13&hienthi=VietinBank,ACB,BIDV,MBBank,SHB,Techcombank&"></iframe>
+                    <iframe id="frame_interest" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/json/laisuatchovay?bgheader=ffc107&colorheader=ffffff&padding=5&fontsize=13&border=0&hienthi=VietinBank,ACB,BIDV,MBBank,SHB&"></iframe>
+                    <iframe id="frame_market" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/gia-ca-thi-truong?bgheader=ffc107&colorheader=ffffff&padding=5&fontsize=13&border=0&hienthi=thit-heo,ca-phe&"></iframe>
+                </div>
+            </div>
         </div>
     </div>
     <nav>
@@ -1927,17 +2043,17 @@ img {
 <style>
         /* width */
         ::-webkit-scrollbar {
-                width: 4px;
+            width: 4px;
         }
 
         /* Track */
         ::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.02);
+            background: transparent;
         }
 
         /* Handle */
         ::-webkit-scrollbar-thumb {
-            background: rgba(0, 0, 0, .25);
+            background: red;
         }
 
         /* Handle on hover */
@@ -2214,14 +2330,21 @@ function tabs(value, numa) {
     setTimeout(opentask, 600);
 }
 
-
+    function frame (value) {
+        $(".block_dropdown-item").removeClass("open");
+        $("#frame_economic").addClass("open");
+        $("#" + value).addClass("open");
+    }   
 
     function taskbar (value) {
         $("#" + value).addClass("open");
         //alert("!");
     }
 
-
+  
+    $("#economic").click(function() {
+        $("#dropdown").toggleClass("open");
+    });
     $("#tast_vnexpress").click(function() {
         $("#frame_vnexpress").toggleClass("open");
     });
