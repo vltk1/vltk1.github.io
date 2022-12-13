@@ -144,8 +144,11 @@ body {
     position: fixed;
     display: none;
 }
+.block_dropdown {
+    width: 20%;
+}
 .block_frame {
-    width: 100%;
+    width: 80%;
     height: 100%;
     margin: 0 auto;
     background-color: rgb(155, 134, 134);
@@ -437,6 +440,9 @@ img {
 <header>
     
 <script>
+
+
+
     $(document).ready(function() {
         // Making 2 variable month and day
         var monthNames = [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" ]; 
@@ -523,24 +529,38 @@ img {
         background-size: 100% 100%;
         cursor: pointer;
     }
-    .block_dropdown, .block_frame {
+    
+    .block_box {
         width: 600px;
         height: 400px;
-        display: none;
         flex-wrap: wrap;
         background-color: #fff;
         border: 1px solid #555;
         position: absolute;
         list-style: none;
         border-radius: 10px;
-        top: 25px;
+        top: 38px;
         margin-left: -220px;
         padding: 22px 0 0 0;
         box-shadow: 5px 5px 20px rgb(29 27 27);
         z-index: 991;
+        display: none;
+        justify-content: space-between;
         overflow: hidden;
     }
-    
+    .block_box.zoom {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+    }
+    .block_box.open {
+        display: flex;
+    }
     .block_frame iframe {
         display: none;
     }
@@ -550,6 +570,16 @@ img {
     .block_dropdown.open {
         display: flex;
     }
+    .block_dropdown.zoom {
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+    
     .block_frame.open {
         display: block;
     }
@@ -557,22 +587,23 @@ img {
         text-decoration: none;
         line-height: 1.3;
         font-size: 12px;
-        width: 32%;
+        padding: 5px;
         border: 1px solid #000;
         display: flex;
         background-color: gray;
-        justify-content: center;
-        align-items: center;
+        text-align: left;
         cursor: pointer;
     }
     .block_dropdown-item.open {
         display: block;
+        background-color: red;
     }
     .block_bar {
         position: absolute;
         top: 0;
         right: 10px;
         display: flex;
+        z-index: 9999;
     }
     .block_barbox {
         width: 16px;
@@ -581,6 +612,9 @@ img {
         display: inline-block;
         background-color: #333;
         margin: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         cursor: pointer;
     }
     #block_back {
@@ -608,32 +642,34 @@ img {
             <div id="Date"></div>
             <div class="block_economic">
                 <i id="economic"></i>
-                <div class="block_bar">
-                    <i class="block_barbox" id="block_back">-</i>
-                    <i class="block_barbox" id="block_zoom">O</i>
-                    <i class="block_barbox" id="block_delete">X</i>
-                </div>
-                <ul class="block_dropdown" id="dropdown">
-                    <li class="block_dropdown-item" onclick="frame('frame_gold');">Bảng giá vàng</li>
-                    <li class="block_dropdown-item" onclick="frame('frame_oilfuel');">Xăng dầu</li>
-                    <li class="block_dropdown-item" onclick="frame('frame_convert');">Công cụ chuyển đổi</li>
-                    <li class="block_dropdown-item" onclick="frame('frame_rate');">Tỷ giá hối đoái</li>
-                    <li class="block_dropdown-item" onclick="frame('frame_currency');">Ngoại tệ</li>
-                    <li class="block_dropdown-item" onclick="frame('frame_money');">Tiền ảo</li>
-                    <li class="block_dropdown-item" onclick="frame('frame_deposit');">Lãi suất Gửi</li>
-                    <li class="block_dropdown-item" onclick="frame('frame_interest');">Lãi suất Vay</li>
-                    <li class="block_dropdown-item" onclick="frame('frame_market');">Giá Cả thị trường</li>
-                </ul>
-                <div class="block_frame" id="frame_economic">
-                    <iframe id="frame_gold" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/vang?bgheader=b53e3e&colorheader=ffffff&padding=5&fontsize=13&hienthi=sjc,doji,bank,pnj,ngochai&"></iframe>
-                    <iframe id="frame_oilfuel" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/xang-dau?bgheader=b81414&colorheader=ffffff&padding=6&fontsize=13&hienthi=trongnuoc,thegioi&"></iframe>
-                    <iframe id="frame_convert" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/json/cong-cu-chuyen-doi-tien-te?maukhungketqua=dc1818&mauchuketqua=ffffff&sizechuketqua=30&fontsize=13&border=1&hienthamkhao=1&hienthi=aud,cad,chf,cny,dkk&"></iframe>
-                    <iframe id="frame_rate" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/tygia?bgheader=ff5722&colorheader=ffffff&padding=5&fontsize=13&hienthi=VietinBank,BIDV,MBBank,Sacombank,Techcombank,Vietcombank,ABBANK,BVBANK,PVCOMBank,VCCB,LIENVIETPOSTBANK,CBBank,DongA,GPBANK,HLBANK&"></iframe>
-                    <iframe id="frame_currency" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/ngoaite?bgheader=333333&colorheader=ffffff&padding=5&fontsize=13&hienthi=aud,cad,chf,cny,dkk,eur,gbp,hkd&"></iframe>
-                    <iframe id="frame_money" frameborder="0" width="100%" height="100%" src=""></iframe>
-                    <iframe id="frame_deposit" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/laisuat?bgheader=6f42c1&colorheader=ffffff&padding=5&fontsize=13&hienthi=VietinBank,ACB,BIDV,MBBank,SHB,Techcombank&"></iframe>
-                    <iframe id="frame_interest" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/json/laisuatchovay?bgheader=ffc107&colorheader=ffffff&padding=5&fontsize=13&border=0&hienthi=VietinBank,ACB,BIDV,MBBank,SHB&"></iframe>
-                    <iframe id="frame_market" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/gia-ca-thi-truong?bgheader=ffc107&colorheader=ffffff&padding=5&fontsize=13&border=0&hienthi=thit-heo,ca-phe&"></iframe>
+                <div class="block_box" id="box_views">
+                    <div class="block_bar">
+                        <i class="block_barbox" id="block_back">-</i>
+                        <i class="block_barbox" id="block_zoom">O</i>
+                        <i class="block_barbox" id="block_delete">X</i>
+                    </div>
+                    <ul class="block_dropdown" id="dropdown">
+                        <li class="block_dropdown-item open" onclick="frame('frame_gold');">Bảng giá vàng</li>
+                        <li class="block_dropdown-item" onclick="frame('frame_oilfuel');">Xăng dầu</li>
+                        <li class="block_dropdown-item" onclick="frame('frame_convert');">Công cụ chuyển đổi</li>
+                        <li class="block_dropdown-item" onclick="frame('frame_rate');">Tỷ giá hối đoái</li>
+                        <li class="block_dropdown-item" onclick="frame('frame_currency');">Ngoại tệ</li>
+                        <li class="block_dropdown-item" onclick="frame('frame_money');">Tiền ảo</li>
+                        <li class="block_dropdown-item" onclick="frame('frame_deposit');">Lãi suất Gửi</li>
+                        <li class="block_dropdown-item" onclick="frame('frame_interest');">Lãi suất Vay</li>
+                        <li class="block_dropdown-item" onclick="frame('frame_market');">Giá Cả thị trường</li>
+                    </ul>
+                    <div class="block_frame" id="frame_economic">
+                        <iframe id="frame_gold" class="open" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/vang?bgheader=b53e3e&colorheader=ffffff&padding=5&fontsize=13&hienthi=sjc,doji,bank,pnj,ngochai&"></iframe>
+                        <iframe id="frame_oilfuel" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/xang-dau?bgheader=b81414&colorheader=ffffff&padding=6&fontsize=13&hienthi=trongnuoc,thegioi&"></iframe>
+                        <iframe id="frame_convert" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/json/cong-cu-chuyen-doi-tien-te?maukhungketqua=dc1818&mauchuketqua=ffffff&sizechuketqua=30&fontsize=13&border=1&hienthamkhao=1&hienthi=aud,cad,chf,cny,dkk&"></iframe>
+                        <iframe id="frame_rate" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/tygia?bgheader=ff5722&colorheader=ffffff&padding=5&fontsize=13&hienthi=VietinBank,BIDV,MBBank,Sacombank,Techcombank,Vietcombank,ABBANK,BVBANK,PVCOMBank,VCCB,LIENVIETPOSTBANK,CBBank,DongA,GPBANK,HLBANK&"></iframe>
+                        <iframe id="frame_currency" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/ngoaite?bgheader=333333&colorheader=ffffff&padding=5&fontsize=13&hienthi=aud,cad,chf,cny,dkk,eur,gbp,hkd&"></iframe>
+                        <iframe id="frame_money" frameborder="0" width="100%" height="100%" src=""></iframe>
+                        <iframe id="frame_deposit" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/laisuat?bgheader=6f42c1&colorheader=ffffff&padding=5&fontsize=13&hienthi=VietinBank,ACB,BIDV,MBBank,SHB,Techcombank&"></iframe>
+                        <iframe id="frame_interest" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/json/laisuatchovay?bgheader=ffc107&colorheader=ffffff&padding=5&fontsize=13&border=0&hienthi=VietinBank,ACB,BIDV,MBBank,SHB&"></iframe>
+                        <iframe id="frame_market" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/gia-ca-thi-truong?bgheader=ffc107&colorheader=ffffff&padding=5&fontsize=13&border=0&hienthi=thit-heo,ca-phe&"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
@@ -885,7 +921,7 @@ img {
         <div class="block_row">
             <ul class="block_group">
                 <li class="block_item" id="shopee">
-                    <a class="block_link" href="https://shopee.vn/" target="_blank">
+                    <a class="block_link" href="https://shopee.vn/m/ma-giam-gia" target="_blank">
                         <figure class="block_icon">
                             <img src="https://vltk1.github.io/i/shopee.jpg" alt="">
                             <figcaption class="block_name">Shopee</figcaption>
@@ -893,7 +929,7 @@ img {
                     </a>
                 </li>
                 <li class="block_item" id="lazada">
-                    <a class="block_link" href="https://www.lazada.vn/" target="_blank">
+                    <a class="block_link" href="https://pages.lazada.vn/wow/gcp/lazada/channel/vn/khuyen-mai/lich-khuyen-mai" target="_blank">
                         <figure class="block_icon">
                             <img src="https://vltk1.github.io/i/lazada.jpg" alt="">
                             <figcaption class="block_name">Lazada</figcaption>
@@ -902,7 +938,7 @@ img {
                 </li>
                
                 <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://tiki.vn/" target="_blank">
+                    <a class="block_link" href="https://tiki.vn/khuyen-mai/ma-giam-gia" target="_blank">
                         <figure class="block_icon">
                             <img src="https://vltk1.github.io/i/tiki.jpg" alt="">
                             <figcaption class="block_name">Tiki</figcaption>
@@ -912,7 +948,7 @@ img {
                 <li class="block_sub">
                     <ul class="block_team">
                         <li class="block_items" id="amazon">
-                            <a class="block_link" href="https://www.amazon.com/" target="_blank">
+                            <a class="block_link" href="https://www.amazon.com/gp/goldbox?ref_=nav_cs_gb" target="_blank">
                                 <figure class="block_icon">
                                     <img src="https://vltk1.github.io/i/amazon.jpg" alt="">
                                 </figure>
@@ -926,7 +962,7 @@ img {
                             </a>
                         </li>
                         <li class="block_items" id="thegioididong">
-                            <a class="block_link" href="https://www.thegioididong.com/" target="_blank">
+                            <a class="block_link" href="https://www.thegioididong.com/tin-tuc/tin-khuyen-mai/31" target="_blank">
                                 <figure class="block_icon">
                                     <img src="https://vltk1.github.io/i/thegioididong.jpg" alt="">
                                 </figure>
@@ -942,7 +978,7 @@ img {
                     </ul>
                 </li>
             </ul>
-            <h4 class="block_category">Mua sắm</h4>
+            <h4 class="block_category">Tin khuyến mãi</h4>
         </div>
         <div class="block_row">
             <ul class="block_group">
@@ -1552,6 +1588,14 @@ img {
 
         <div class="block_row">
             <ul class="block_group">
+                <li class="block_item" id="msn">
+                    <a class="block_link" href="https://www.msn.com/vi-vn/sports/soccer/fifa-world-cup/schedule?ocid=entnewsntp&pc=U531&cvid=05f5ee597c1f4253a745479849cbd821" target="_blank">
+                        <figure class="block_icon">
+                            <img src="https://vltk1.github.io/i/msn.jpg" alt="">
+                            <figcaption class="block_name">msn</figcaption>
+                        </figure>
+                    </a>
+                </li>
                 <li class="block_item" id="frame_vnexpress">
                     <a class="block_link" href="https://www.dienmayxanh.com/" target="_blank">
                         <figure class="block_icon">
@@ -1565,14 +1609,6 @@ img {
                         <figure class="block_icon">
                             <img src="https://5-stc-laban.zdn.vn/largeicons/mp3.zing.vn-1372407479.png" alt="">
                             <figcaption class="block_name">bongdaplus</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="wikipedia">
-                    <a class="block_link" href="https://vi.wikipedia.org/wiki/Trang_Ch%C3%ADnh" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/wikipedia.jpg" alt="">
-                            <figcaption class="block_name">wikipedia</figcaption>
                         </figure>
                     </a>
                 </li>
@@ -1775,27 +1811,27 @@ img {
 
         <div class="block_row">
             <ul class="block_group">
-                <li class="block_item" id="hocmai">
-                    <a class="block_link" href="https://hocmai.vn/" target="_blank">
+                <li class="block_item" id="nchmf">
+                    <a class="block_link" href="https://www.nchmf.gov.vn/kttv/" target="_blank">
                         <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/hocmai.jpg" alt="">
-                            <figcaption class="block_name">hocmai</figcaption>
+                            <img src="https://vltk1.github.io/i/nchmf.jpg" alt="">
+                            <figcaption class="block_name">nchmf</figcaption>
                         </figure>
                     </a>
                 </li>
-                <li class="block_item" id="tuyensinh247">
-                    <a class="block_link" href="https://tuyensinh247.com/" target="_blank">
+                <li class="block_item" id="vtv1">
+                    <a class="block_link" href="https://vtv.vn/truyen-hinh-truc-tuyen/vtv1/du-bao-thoi-tiet-0.htm" target="_blank">
                         <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/tuyensinh247.jpg" alt="">
-                            <figcaption class="block_name">tuyensinh247</figcaption>
+                            <img src="https://vltk1.github.io/i/vtv1.jpg" alt="">
+                            <figcaption class="block_name">vtv1</figcaption>
                         </figure>
                     </a>
                 </li>
-                <li class="block_item" id="luyenthi123">
-                    <a class="block_link" href="https://www.luyenthi123.com/" target="_blank">
+                <li class="block_item" id="accuweather">
+                    <a class="block_link" href="https://www.accuweather.com/vi/" target="_blank">
                         <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/luyenthi123.jpg" alt="">
-                            <figcaption class="block_name">luyenthi123</figcaption>
+                            <img src="https://vltk1.github.io/i/accuweather.jpg" alt="">
+                            <figcaption class="block_name">accuweather</figcaption>
                         </figure>
                     </a>
                 </li>
@@ -1832,7 +1868,7 @@ img {
                     </ul>
                 </li>
             </ul>
-            <h4 class="block_category">Học trực tuyến</h4>
+            <h4 class="block_category">Thời tiết</h4>
         </div>
 
         <div class="block_row" id="p4">
@@ -2332,7 +2368,8 @@ function tabs(value, numa) {
 
     function frame (value) {
         $(".block_dropdown-item").removeClass("open");
-        $("#frame_economic").addClass("open");
+        $("#frame_economic iframe").removeClass("open");
+        $(this).addClass("open");
         $("#" + value).addClass("open");
     }   
 
@@ -2341,9 +2378,12 @@ function tabs(value, numa) {
         //alert("!");
     }
 
-  
+    $(".block_dropdown-item").click(function() {
+        $(this).addClass("open");
+    });
+
     $("#economic").click(function() {
-        $("#dropdown").toggleClass("open");
+        $("#box_views").toggleClass("open");
     });
     $("#tast_vnexpress").click(function() {
         $("#frame_vnexpress").toggleClass("open");
@@ -2361,6 +2401,10 @@ function tabs(value, numa) {
     $("#desktop1").click(function() {tabs("#tab01","a1");$(this).toggleClass("open");});
     $("#desktop2").click(function() {tabs("#tab02","a2");$(this).toggleClass("open");});
     $("#desktop3").click(function() {tabs("#tab03","a3");$(this).toggleClass("open");});
+
+    $("#block_back").click(function()  {$("#box_views").removeClass("zoom");});
+    $("#block_zoom").click(function() {$("#box_views").addClass("zoom");});
+    $("#block_delete").click(function() {$("#box_views").removeClass("open");});
 
     $("#menu_desktop1").click(function() {tabs("#tab01");$(".block_photo").removeClass("open");$(this).toggleClass("open");$("#menu").toggleClass("open");$("#desktop1").trigger("click");});
     $("#menu_desktop2").click(function() {tabs("#tab02");$(".block_photo").removeClass("open");$(this).toggleClass("open");$("#menu").toggleClass("open");$("#desktop2").trigger("click");});
