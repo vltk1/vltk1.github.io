@@ -529,8 +529,11 @@ img {
         background-size: 100% 100%;
         cursor: pointer;
     }
-    
-    .block_box {
+    #hotTrend {
+        position: relative;
+    }
+   
+    .block_box, .frame_hotTrend {
         width: 600px;
         height: 400px;
         flex-wrap: wrap;
@@ -547,6 +550,12 @@ img {
         display: none;
         justify-content: space-between;
         overflow: hidden;
+    }
+    .frame_hotTrend {
+        margin-left: -420px;
+    }
+    .frame_hotTrend.open {
+        display: flex;
     }
     .block_box.zoom {
         top: 0;
@@ -673,7 +682,10 @@ img {
                 </div>
             </div>
             <div id="hotTrend">
-                <a href="https://trends.google.com.vn/trends/trendingsearches/daily?geo=VN" target="_blank">A!</a>
+                News
+                <div class="frame_hotTrend" id="frame_trend">
+                    <iframe id="frame_market" frameborder="0" width="100%" height="100%" src="http://tivi.x10.bz/index.php"></iframe>
+                </div>
             </div>
         </div>
     </div>
@@ -2388,6 +2400,11 @@ function tabs(value, numa) {
     $("#economic").click(function() {
         $("#box_views").toggleClass("open");
     });
+    
+    $("#hotTrend").click(function() {
+        $("#frame_trend").toggleClass("open");
+    });
+    
     $("#tast_vnexpress").click(function() {
         $("#frame_vnexpress").toggleClass("open");
     });
@@ -2621,4 +2638,6 @@ $("#wallpaper").keyup(function() {
     }
 </style>
 </html>
+
+
 
