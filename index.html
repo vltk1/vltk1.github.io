@@ -455,25 +455,23 @@ img {
         // setting date and time
         $('#Date').html(dayNames[newDate.getDay()] + "、" + newDate.getDate() + '/' + monthNames[newDate.getMonth()] + '/' + newDate.getFullYear());
 
-        setInterval( function() {
-        // Create a newDate() object and extract the seconds of the current time on the visitor's
-        var seconds = new Date().getSeconds();
-        // Add a leading zero to seconds value
-        $("#sec").html(( seconds < 10 ? "0" : "" ) + seconds);
-        },1000);
+        // setInterval( function() {
+        // var seconds = new Date().getSeconds();
+        // $("#sec").html(( seconds < 10 ? "0" : "" ) + seconds);
+        // },1000);
 
         setInterval( function() {
         // Create a newDate() object and extract the minutes of the current time on the visitor's
         var minutes = new Date().getMinutes();
         // Add a leading zero to the minutes value
-        $("#min").html(( minutes < 10 ? "0" : "" ) + minutes + "：");
+        $("#min").html(( minutes < 10 ? "0" : "" ) + minutes);
         },1000);
 
         setInterval( function() {
         // Create a newDate() object and extract the hours of the current time on the visitor's
         var hours = new Date().getHours();
         // Add a leading zero to the hours value
-        $("#hours").html(( hours < 10 ? "0" : "" ) + hours + "：");
+        $("#hours").html(( hours < 10 ? "0" : "" ) + hours + ":");
         }, 1000); 
     });
 </script>
@@ -509,10 +507,9 @@ img {
         padding: 6px 20px;
     }
     .block_time {
-        width: 68px;
         list-style: none;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         margin-right: 15px;
     }
     .block_economic {
@@ -532,7 +529,6 @@ img {
     #hotTrend {
         position: relative;
     }
-   
     .block_box, .frame_hotTrend {
         width: 600px;
         height: 400px;
@@ -566,6 +562,18 @@ img {
         width: 100vw;
         height: 100vh;
         border-radius: 0;
+        position: fixed;
+    }
+    .frame_hotTrend.zoom {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+        position: fixed;
     }
     .block_box.open {
         display: flex;
@@ -626,21 +634,30 @@ img {
         justify-content: center;
         cursor: pointer;
     }
-    #block_back {
+    .block2_news {
+        background-image: url("i/news.png");
+        width: 16px;
+        height: 16px;
+        margin: 0 8px;
+        display: block;
+        background-size: 100% 100%;
+        cursor: pointer;
+    }
+    #block_back, #block2_back {
         background-color: #f7ac15;
         border: 1px solid #f7ac15;
     }
-    #block_zoom {
+    #block_zoom, #block2_zoom {
         background-color: #4cb429;
         border: 1px solid #5db938;
     }
-    #block_delete {
+    #block_delete, #block2_delete {
         background-color: #f36039;
         border: 1px solid #b26463;
     }
 </style>
 
-    <div class="block_top">
+    <!-- <div class="block_top">
         <div class="block_clock">
             <ul class="block_time">
                 <li id="hours"></li>
@@ -683,13 +700,18 @@ img {
                 </div>
             </div>
             <div id="hotTrend">
-                News
+                <i id="hotTrend_news" class="block2_news"></i>
                 <div class="frame_hotTrend" id="frame_trend">
+                    <div class="block_bar">
+                        <i class="block_barbox" id="block2_back">-</i>
+                        <i class="block_barbox" id="block2_zoom">O</i>
+                        <i class="block_barbox" id="block2_delete">X</i>
+                    </div>
                     <iframe frameborder="0" width="100%" height="100%" src="https://www.tivi.x10.bz/rss/"></iframe>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <nav>
         <ul id="taskbarData" class="block_taskbar"></ul>
         <button class="block_button" id="open_menu">
@@ -721,472 +743,448 @@ img {
 
 <main id="main">
     <div class="block_list open" id="tab01">
-
-        <div class="block_row">
-            <ul class="block_group">
-                <li class="block_item" id="google">
-                    <a class="block_link" href="https://www.google.com/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/google.jpg" alt="">
-                            <figcaption class="block_name">Google</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="bing">
-                    <a class="block_link" href="https://www.bing.com/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/bing.jpg" alt="">
-                            <figcaption class="block_name">Bing</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="yahoo">
-                    <a class="block_link" href="https://vn.yahoo.com/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/yahoo.jpg" alt="">
-                            <figcaption class="block_name">Yahoo</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="duckduckgo">
-                    <a class="block_link" href="https://duckduckgo.com/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/duckduckgo.jpg" alt="">
-                            <figcaption class="block_name">Duckduckgo</figcaption>
-                        </figure>
-                    </a>
-                </li>
-            </ul>
-            <h4 class="block_category">Tìm kiếm</h4>
-        </div>
-
-        <div class="block_row">
-            <ul class="block_group">
-                <li class="block_item" id="intergram">
-                    <a class="block_link" href="https://www.instagram.com/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/intergram.jpg" alt="">
-                            <figcaption class="block_name">Instagram</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="facebook">
-                    <a class="block_link" href="https://www.facebook.com/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/facebook.jpg" alt="">
-                            <figcaption class="block_name">Facebook</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://chat.zalo.me/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/zalo.png" alt="">
-                            <figcaption class="block_name">Zalo</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_sub">
-                    <ul class="block_team">
-                        <li class="block_items" id="twitter">
-                            <a class="block_link" href="https://twitter.com/" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="https://vltk1.github.io/i/twitter.jpg" alt="">
-                                    <!-- <figcaption class="block_name">twitter</figcaption> -->
-                                </figure>
-                            </a>
-                        </li>
-                        <li class="block_items" id="frame_vnexpress">
-                            <a class="block_link" href="https://www.messenger.com/" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="https://vltk1.github.io/i/messenger.jpg" alt="">
-                                    <!-- <figcaption class="block_name">messenger</figcaption> -->
-                                </figure>
-                            </a>
-                        </li>
-                        <li class="block_items" id="whatsapp">
-                            <a class="block_link" href="https://web.whatsapp.com/" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="https://vltk1.github.io/i/whatsapp.jpg" alt="">
-                                    <!-- <figcaption class="block_name">whatsapp</figcaption> -->
-                                </figure>
-                            </a>
-                        </li>
-                        <li class="block_items" id="viber">
-                            <a class="block_link" href="https://www.viber.com/vi/" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="https://vltk1.github.io/i/viber.jpg" alt="">
-                                    <!-- <figcaption class="block_name">Google</figcaption> -->
-                                </figure>
-                            </a>
-                        </li>
-                       
+        <div class="home">
+            <div class="home_left">
+                <div class="home_time">
+                    <ul class="block_time home_house">
+                        <li id="hours"></li>
+                        <li id="point"></li>
+                        <li id="min"></li>
+                        <li id="point"></li>
+                        <li id="sec"></li>
                     </ul>
-                </li>
-            </ul>
-            <h4 class="block_category">Mạng Xã hội</h4>
+                    <p class="home_day" id="Date"></p>
+                </div>
+                <div class="home_row">
+                    <div class="home_col2">
+                        <iframe frameborder="0" width="100%" height="100%" src="frame_price.html"></iframe>
+                    </div>
+                    <div class="home_col2 home_bgc2">
+                        <a href="https://www.msn.com/vi-vn/weather/" target="_blank" class="home_link2"></a>
+                        <iframe frameborder="0" width="100%" height="100%" src="https://tivi.x10.bz/weather/"></iframe>
+                    </div>
+                </div>
+                <div class="home_row2">
+                   Thông báo
+                   <iframe frameborder="0" width="100%" height="90%" src="https://www.tivi.x10.bz/rss/"></iframe>
+                </div>
+            </div>
+            <div class="home_right">
+                <div class="home_items">
+                    <div class="block_row">
+                        <ul class="block_group">
+                            <li class="block_item" id="google">
+                                <a class="block_link" href="https://www.google.com/" target="_blank">
+                                    <figure class="block_icon">
+                                        <img src="https://vltk1.github.io/i/google.jpg" alt="">
+                                        <figcaption class="block_name">Google</figcaption>
+                                    </figure>
+                                </a>
+                            </li>
+                            <li class="block_item" id="bing">
+                                <a class="block_link" href="https://www.bing.com/" target="_blank">
+                                    <figure class="block_icon">
+                                        <img src="https://vltk1.github.io/i/bing.jpg" alt="">
+                                        <figcaption class="block_name">Bing</figcaption>
+                                    </figure>
+                                </a>
+                            </li>
+                            <li class="block_item" id="yahoo">
+                                <a class="block_link" href="https://vn.yahoo.com/" target="_blank">
+                                    <figure class="block_icon">
+                                        <img src="https://vltk1.github.io/i/yahoo.jpg" alt="">
+                                        <figcaption class="block_name">Yahoo</figcaption>
+                                    </figure>
+                                </a>
+                            </li>
+                            <li class="block_item" id="duckduckgo">
+                                <a class="block_link" href="https://duckduckgo.com/" target="_blank">
+                                    <figure class="block_icon">
+                                        <img src="https://vltk1.github.io/i/duckduckgo.jpg" alt="">
+                                        <figcaption class="block_name">Duckduckgo</figcaption>
+                                    </figure>
+                                </a>
+                            </li>
+                        </ul>
+                        <h4 class="block_category">Tìm kiếm</h4>
+                    </div>
+            
+                    <div class="block_row">
+                        <ul class="block_group">
+                            <li class="block_item" id="intergram">
+                                <a class="block_link" href="https://www.instagram.com/" target="_blank">
+                                    <figure class="block_icon">
+                                        <img src="https://vltk1.github.io/i/intergram.jpg" alt="">
+                                        <figcaption class="block_name">Instagram</figcaption>
+                                    </figure>
+                                </a>
+                            </li>
+                            <li class="block_item" id="facebook">
+                                <a class="block_link" href="https://www.facebook.com/" target="_blank">
+                                    <figure class="block_icon">
+                                        <img src="https://vltk1.github.io/i/facebook.jpg" alt="">
+                                        <figcaption class="block_name">Facebook</figcaption>
+                                    </figure>
+                                </a>
+                            </li>
+                            <li class="block_item" id="frame_vnexpress">
+                                <a class="block_link" href="https://chat.zalo.me/" target="_blank">
+                                    <figure class="block_icon">
+                                        <img src="https://vltk1.github.io/i/zalo.png" alt="">
+                                        <figcaption class="block_name">Zalo</figcaption>
+                                    </figure>
+                                </a>
+                            </li>
+                            <li class="block_sub">
+                                <ul class="block_team">
+                                    <li class="block_items" id="twitter">
+                                        <a class="block_link" href="https://twitter.com/" target="_blank">
+                                            <figure class="block_icon">
+                                                <img src="https://vltk1.github.io/i/twitter.jpg" alt="">
+                                                <!-- <figcaption class="block_name">twitter</figcaption> -->
+                                            </figure>
+                                        </a>
+                                    </li>
+                                    <li class="block_items" id="frame_vnexpress">
+                                        <a class="block_link" href="https://www.messenger.com/" target="_blank">
+                                            <figure class="block_icon">
+                                                <img src="https://vltk1.github.io/i/messenger.jpg" alt="">
+                                                <!-- <figcaption class="block_name">messenger</figcaption> -->
+                                            </figure>
+                                        </a>
+                                    </li>
+                                    <li class="block_items" id="whatsapp">
+                                        <a class="block_link" href="https://web.whatsapp.com/" target="_blank">
+                                            <figure class="block_icon">
+                                                <img src="https://vltk1.github.io/i/whatsapp.jpg" alt="">
+                                                <!-- <figcaption class="block_name">whatsapp</figcaption> -->
+                                            </figure>
+                                        </a>
+                                    </li>
+                                    <li class="block_items" id="viber">
+                                        <a class="block_link" href="https://www.viber.com/vi/" target="_blank">
+                                            <figure class="block_icon">
+                                                <img src="https://vltk1.github.io/i/viber.jpg" alt="">
+                                                <!-- <figcaption class="block_name">Google</figcaption> -->
+                                            </figure>
+                                        </a>
+                                    </li>
+                                   
+                                </ul>
+                            </li>
+                        </ul>
+                        <h4 class="block_category">Mạng Xã hội</h4>
+                    </div>
+            
+                    <div class="block_row">
+                        <ul class="block_group">
+                            <li class="block_item" id="youtube">
+                                <a class="block_link" href="https://www.youtube.com/" target="_blank">
+                                    <figure class="block_icon">
+                                        <img src="https://vltk1.github.io/i/youtube.jpg" alt="">
+                                        <figcaption class="block_name">Youtube</figcaption>
+                                    </figure>
+                                </a>
+                            </li>
+                            <li class="block_item" id="tiktok">
+                                <a class="block_link" href="https://www.tiktok.com/" target="_blank">
+                                    <figure class="block_icon">
+                                        <img src="https://vltk1.github.io/i/tiktok.jpg" alt="">
+                                        <figcaption class="block_name">TikTok</figcaption>
+                                    </figure>
+                                </a>
+                            </li>
+                            <li class="block_item" id="bilibili">
+                                <a class="block_link" href="https://www.bilibili.com/" target="_blank">
+                                    <figure class="block_icon">
+                                        <img src="https://vltk1.github.io/i/bilibili.jpg" alt="">
+                                        <figcaption class="block_name">Bilibili</figcaption>
+                                    </figure>
+                                </a>
+                            </li>
+                            <li class="block_item" id="dailymotion">
+                                <a class="block_link" href=" https://www.dailymotion.com/vn" target="_blank">
+                                    <figure class="block_icon">
+                                        <img src="https://vltk1.github.io/i/dailymotion.jpg" alt="">
+                                        <figcaption class="block_name">Dailymotion</figcaption>
+                                    </figure>
+                                </a>
+                            </li>
+            
+                            
+                        </ul>
+                        <h4 class="block_category">Video giải trí</h4>
+                    </div>
+            
+                    <div class="block_row">
+                        <ul class="block_group">
+                            <li class="block_item" id="vnexpress">
+                                <a class="block_link" href="https://vnexpress.net/" target="_blank">
+                                    <figure class="block_icon">
+                                        <img src="https://vltk1.github.io/i/vnexpress.jpg" alt="">
+                                        <figcaption class="block_name">VnExpress</figcaption>
+                                    </figure>
+                                </a>
+                            </li>
+                            <li class="block_item" id="thanhnien">
+                                <a class="block_link" href="https://thanhnien.vn/" target="_blank">
+                                    <figure class="block_icon">
+                                        <img src="https://vltk1.github.io/i/thanhnien.jpg" alt="">
+                                        <figcaption class="block_name">Thanh niên</figcaption>
+                                    </figure>
+                                </a>
+                            </li>
+            
+                            <li class="block_item" id="zingnews">
+                                <a class="block_link" href="https://zingnews.vn/" target="_blank">
+                                    <figure class="block_icon">
+                                        <img src="https://vltk1.github.io/i/zingnews.jpg" alt="">
+                                        <figcaption class="block_name">Zing News</figcaption>
+                                    </figure>
+                                </a>
+                            </li>
+            
+                           
+                            <li class="block_sub">
+                                <ul class="block_team">
+                                    <li class="block_items" id="24h">
+                                        <a class="block_link" href="https://24h.com.vn/" target="_blank">
+                                            <figure class="block_icon">
+                                                <img src="https://vltk1.github.io/i/24h.jpg" alt="">
+                                            </figure>
+                                        </a>
+                                    </li>
+                                    <li class="block_items" id="kenh14">
+                                        <a class="block_link" href="https://kenh14.vn/" target="_blank">
+                                            <figure class="block_icon">
+                                                <img src="https://vltk1.github.io/i/kenh14.jpg" alt="">
+                                            </figure>
+                                        </a>
+                                    </li>
+                                    <li class="block_items" id="thanhnien">
+                                        <a class="block_link" href="https://thanhnien.vn/" target="_blank">
+                                            <figure class="block_icon">
+                                                <img src="https://vltk1.github.io/i/thanhnien.jpg" alt="">
+                                            </figure>
+                                        </a>
+                                    </li>
+                                    <li class="block_items" id="tuoitre">
+                                        <a class="block_link" href="https://tuoitre.vn/" target="_blank">
+                                            <figure class="block_icon">
+                                                <img src="https://vltk1.github.io/i/tuoitre.jpg" alt="">
+                                            </figure>
+                                        </a>
+                                    </li>
+                                   
+                                </ul>
+                            </li>
+                        </ul>
+                        <h4 class="block_category">Tin tức</h4>
+                    </div>
+            
+            
+                    <div class="block_row">
+                        <ul class="block_group">
+                            <li class="block_item" id="shopee">
+                                <a class="block_link" href="https://shopee.vn/m/ma-giam-gia" target="_blank">
+                                    <figure class="block_icon">
+                                        <img src="https://vltk1.github.io/i/shopee.jpg" alt="">
+                                        <figcaption class="block_name">Shopee</figcaption>
+                                    </figure>
+                                </a>
+                            </li>
+                            <li class="block_item" id="lazada">
+                                <a class="block_link" href="https://pages.lazada.vn/wow/gcp/lazada/channel/vn/khuyen-mai/lich-khuyen-mai" target="_blank">
+                                    <figure class="block_icon">
+                                        <img src="https://vltk1.github.io/i/lazada.jpg" alt="">
+                                        <figcaption class="block_name">Lazada</figcaption>
+                                    </figure>
+                                </a>
+                            </li>
+                           
+                            <li class="block_item" id="frame_vnexpress">
+                                <a class="block_link" href="https://tiki.vn/khuyen-mai/ma-giam-gia" target="_blank">
+                                    <figure class="block_icon">
+                                        <img src="https://vltk1.github.io/i/tiki.jpg" alt="">
+                                        <figcaption class="block_name">Tiki</figcaption>
+                                    </figure>
+                                </a>
+                            </li>
+                            <li class="block_sub">
+                                <ul class="block_team">
+                                    <li class="block_items" id="amazon">
+                                        <a class="block_link" href="https://www.amazon.com/gp/goldbox?ref_=nav_cs_gb" target="_blank">
+                                            <figure class="block_icon">
+                                                <img src="https://vltk1.github.io/i/amazon.jpg" alt="">
+                                            </figure>
+                                        </a>
+                                    </li>
+                                    <li class="block_items" id="iebay">
+                                        <a class="block_link" href="https://www.ebay.com/" target="_blank">
+                                            <figure class="block_icon">
+                                                <img src="https://vltk1.github.io/i/ebay.jpg" alt="">
+                                            </figure>
+                                        </a>
+                                    </li>
+                                    <li class="block_items" id="thegioididong">
+                                        <a class="block_link" href="https://www.thegioididong.com/tin-tuc/tin-khuyen-mai/31" target="_blank">
+                                            <figure class="block_icon">
+                                                <img src="https://vltk1.github.io/i/thegioididong.jpg" alt="">
+                                            </figure>
+                                        </a>
+                                    </li>
+                                    <li class="block_items" id="bachhoaxanh">
+                                        <a class="block_link" href="https://www.bachhoaxanh.com/" target="_blank">
+                                            <figure class="block_icon">
+                                                <img src="https://vltk1.github.io/i/bachhoaxanh.jpg" alt="">
+                                            </figure>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <h4 class="block_category">Tin khuyến mãi</h4>
+                    </div>
+                    
+                    <div class="block_row">
+                        <ul class="block_group">
+                            <li class="block_item" id="now">
+                                <a class="block_link" href="https://www.now.vn/" target="_blank">
+                                    <figure class="block_icon">
+                                        <img src="https://vltk1.github.io/i/now.jpg" alt="">
+                                        <figcaption class="block_name">Now</figcaption>
+                                    </figure>
+                                </a>
+                            </li>
+                            <li class="block_items" id="grabfood">
+                                <a class="block_link" href="https://food.grab.com/vn/vi/restaurants" target="_blank">
+                                    <figure class="block_icon">
+                                        <img src="https://vltk1.github.io/i/grabfood.jpg" alt="">
+                                        <figcaption class="block_name">Grab Food</figcaption>
+                                    </figure>
+                                </a>
+                            </li>
+                            <li class="block_item" id="foody">
+                                <a class="block_link" href="https://www.foody.vn/" target="_blank">
+                                    <figure class="block_icon">
+                                        <img src="https://vltk1.github.io/i/foody.jpg" alt="">
+                                        <figcaption class="block_name">Foody</figcaption>
+                                    </figure>
+                                </a>
+                            </li>
+                            <li class="block_sub">
+                                <ul class="block_team">
+                                    <li class="block_items" id="pasgo">
+                                        <a class="block_link" href="https://pasgo.vn/" target="_blank">
+                                            <figure class="block_icon">
+                                                <img src="https://vltk1.github.io/i/pasgo.jpg" alt="">
+                                            </figure>
+                                        </a>
+                                    </li>
+                                    <li class="block_items" id="matsuya">
+                                        <a class="block_link" href="http://matsuya.vn/" target="_blank">
+                                            <figure class="block_icon">
+                                                <img src="https://vltk1.github.io/i/matsuya.jpg" alt="">
+                                            </figure>
+                                        </a>
+                                    </li>
+                                    <li class="block_items" id="baemin">
+                                        <a class="block_link" href="https://baemin.vn/" target="_blank">
+                                            <figure class="block_icon">
+                                                <img src="https://vltk1.github.io/i/baemin.jpg" alt="">
+                                            </figure>
+                                        </a>
+                                    </li>
+                                    <li class="block_items" id="gofood">
+                                        <a class="block_link" href="https://gofood.vn/" target="_blank">
+                                            <figure class="block_icon">
+                                                <img src="https://vltk1.github.io/i/gofood.jpg" alt="">
+                                            </figure>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <h4 class="block_category">Ăn uống</h4>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="block_row">
-            <ul class="block_group">
-                <li class="block_item" id="youtube">
-                    <a class="block_link" href="https://www.youtube.com/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/youtube.jpg" alt="">
-                            <figcaption class="block_name">Youtube</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="tiktok">
-                    <a class="block_link" href="https://www.tiktok.com/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/tiktok.jpg" alt="">
-                            <figcaption class="block_name">TikTok</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="bilibili">
-                    <a class="block_link" href="https://www.bilibili.com/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/bilibili.jpg" alt="">
-                            <figcaption class="block_name">Bilibili</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="dailymotion">
-                    <a class="block_link" href=" https://www.dailymotion.com/vn" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/dailymotion.jpg" alt="">
-                            <figcaption class="block_name">Dailymotion</figcaption>
-                        </figure>
-                    </a>
-                </li>
-
-                
-            </ul>
-            <h4 class="block_category">Video giải trí</h4>
-        </div>
-
-        <div class="block_row">
-            <ul class="block_group">
-                <li class="block_item" id="vnexpress">
-                    <a class="block_link" href="https://vnexpress.net/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/vnexpress.jpg" alt="">
-                            <figcaption class="block_name">VnExpress</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="thanhnien">
-                    <a class="block_link" href="https://thanhnien.vn/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/thanhnien.jpg" alt="">
-                            <figcaption class="block_name">Thanh niên</figcaption>
-                        </figure>
-                    </a>
-                </li>
-
-                <li class="block_item" id="zingnews">
-                    <a class="block_link" href="https://zingnews.vn/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/zingnews.jpg" alt="">
-                            <figcaption class="block_name">Zing News</figcaption>
-                        </figure>
-                    </a>
-                </li>
-
-               
-                <li class="block_sub">
-                    <ul class="block_team">
-                        <li class="block_items" id="24h">
-                            <a class="block_link" href="https://24h.com.vn/" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="https://vltk1.github.io/i/24h.jpg" alt="">
-                                </figure>
-                            </a>
-                        </li>
-                        <li class="block_items" id="kenh14">
-                            <a class="block_link" href="https://kenh14.vn/" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="https://vltk1.github.io/i/kenh14.jpg" alt="">
-                                </figure>
-                            </a>
-                        </li>
-                        <li class="block_items" id="thanhnien">
-                            <a class="block_link" href="https://thanhnien.vn/" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="https://vltk1.github.io/i/thanhnien.jpg" alt="">
-                                </figure>
-                            </a>
-                        </li>
-                        <li class="block_items" id="tuoitre">
-                            <a class="block_link" href="https://tuoitre.vn/" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="https://vltk1.github.io/i/tuoitre.jpg" alt="">
-                                </figure>
-                            </a>
-                        </li>
-                       
-                    </ul>
-                </li>
-            </ul>
-            <h4 class="block_category">Tin tức</h4>
-        </div>
+        <style>
+            .home_col2 {
+                position: relative;
+            }
+            .home_bgc2 {
+                background-image: linear-gradient(#2a97cb, #6aa7ca);
+            }
+            .home_link2 {
+                width: 83%;
+                height: 83%;
+                position: absolute;
+            }
+            .home_list {
+                overflow: scroll;
+            }
+            .home_list {
+                list-style: none;
+                height: 120px;
+            }
+            .home_items {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .home_time {
+                padding: 0 10px 20px 10px;
+            }
+            .home_house {
+                font-size: 50px;
+                color: #fff;
+                line-height: 1;
+                margin-bottom: 5px;
+                font-weight: 300;
+            }
+            .home_day {
+                color: #fff;
+                font-weight: 400;
+                padding-left: 2px;
+            }
+            .home_row {
+                display: flex;
+                margin-bottom: 20px;
+            }
+            .home_row2 {
+                background-color: #fff;
+                height: 233px;
+                background-color: #fff;
+                padding: 10px;  
+                margin: 0 10px;
+                border-radius: 15px;
+                margin-bottom: 20px;
+                overflow: hidden;
+            }
+            .home_col2 {
+                width: 50%;
+                height: 120px;
+                background-color: #fff;
+                padding: 10px;
+                margin: 0 10px;
+                border-radius: 15px;
+            }
+            .home {
+                display: flex;
+            }
+            .home_left {
+                width: 30vw;
+                height: 82vh;
+            }
+            .home_right {
+                width: 54vw;
+                height: 82vh;
+            }
+        </style>
+    </div>
 
 
-        <div class="block_row">
-            <ul class="block_group">
-                <li class="block_item" id="shopee">
-                    <a class="block_link" href="https://shopee.vn/m/ma-giam-gia" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/shopee.jpg" alt="">
-                            <figcaption class="block_name">Shopee</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="lazada">
-                    <a class="block_link" href="https://pages.lazada.vn/wow/gcp/lazada/channel/vn/khuyen-mai/lich-khuyen-mai" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/lazada.jpg" alt="">
-                            <figcaption class="block_name">Lazada</figcaption>
-                        </figure>
-                    </a>
-                </li>
-               
-                <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://tiki.vn/khuyen-mai/ma-giam-gia" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/tiki.jpg" alt="">
-                            <figcaption class="block_name">Tiki</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_sub">
-                    <ul class="block_team">
-                        <li class="block_items" id="amazon">
-                            <a class="block_link" href="https://www.amazon.com/gp/goldbox?ref_=nav_cs_gb" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="https://vltk1.github.io/i/amazon.jpg" alt="">
-                                </figure>
-                            </a>
-                        </li>
-                        <li class="block_items" id="iebay">
-                            <a class="block_link" href="https://www.ebay.com/" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="https://vltk1.github.io/i/ebay.jpg" alt="">
-                                </figure>
-                            </a>
-                        </li>
-                        <li class="block_items" id="thegioididong">
-                            <a class="block_link" href="https://www.thegioididong.com/tin-tuc/tin-khuyen-mai/31" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="https://vltk1.github.io/i/thegioididong.jpg" alt="">
-                                </figure>
-                            </a>
-                        </li>
-                        <li class="block_items" id="bachhoaxanh">
-                            <a class="block_link" href="https://www.bachhoaxanh.com/" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="https://vltk1.github.io/i/bachhoaxanh.jpg" alt="">
-                                </figure>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <h4 class="block_category">Tin khuyến mãi</h4>
-        </div>
-        <div class="block_row">
-            <ul class="block_group">
-                <li class="block_item" id="now">
-                    <a class="block_link" href="https://www.now.vn/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/now.jpg" alt="">
-                            <figcaption class="block_name">Now</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_items" id="grabfood">
-                    <a class="block_link" href="https://food.grab.com/vn/vi/restaurants" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/grabfood.jpg" alt="">
-                            <figcaption class="block_name">Grab Food</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="foody">
-                    <a class="block_link" href="https://www.foody.vn/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/foody.jpg" alt="">
-                            <figcaption class="block_name">Foody</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_sub">
-                    <ul class="block_team">
-                        <li class="block_items" id="pasgo">
-                            <a class="block_link" href="https://pasgo.vn/" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="https://vltk1.github.io/i/pasgo.jpg" alt="">
-                                </figure>
-                            </a>
-                        </li>
-                        <li class="block_items" id="matsuya">
-                            <a class="block_link" href="http://matsuya.vn/" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="https://vltk1.github.io/i/matsuya.jpg" alt="">
-                                </figure>
-                            </a>
-                        </li>
-                        <li class="block_items" id="baemin">
-                            <a class="block_link" href="https://baemin.vn/" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="https://vltk1.github.io/i/baemin.jpg" alt="">
-                                </figure>
-                            </a>
-                        </li>
-                        <li class="block_items" id="gofood">
-                            <a class="block_link" href="https://gofood.vn/" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="https://vltk1.github.io/i/gofood.jpg" alt="">
-                                </figure>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <h4 class="block_category">Ăn uống</h4>
-        </div>
-
-       
-
-        <div class="block_row">
-            <ul class="block_group">
-                <li class="block_item" id="agoda">
-                    <a class="block_link" href="https://www.agoda.com/vi-vn/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/agoda.jpg" alt="">
-                            <figcaption class="block_name">Agoda</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="begodi">
-                    <a class="block_link" href="https://www.begodi.vn/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/begodi.jpg" alt="">
-                            <figcaption class="block_name">Begodi</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="booking">
-                    <a class="block_link" href="https://www.booking.com/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/booking.jpg" alt="">
-                            <figcaption class="block_name">Booking</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_sub">
-                    <ul class="block_team">
-                        <li class="block_items" id="vntrip">
-                            <a class="block_link" href="https://www.vntrip.vn/" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="https://vltk1.github.io/i/vntrip.jpg" alt="">
-                                </figure>
-                            </a>
-                        </li>
-                        <li class="block_items" id="chudu24">
-                            <a class="block_link" href="https://www.chudu24.com/" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="https://vltk1.github.io/i/chudu24.jpg" alt="">
-                                </figure>
-                            </a>
-                        </li>
-                        <li class="block_items" id="traveloka">
-                            <a class="block_link" href="https://www.traveloka.com/vi-vn/" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="https://vltk1.github.io/i/traveloka.jpg" alt="">
-                                </figure>
-                            </a>
-                        </li>
-                        <li class="block_items" id="gotadi">
-                            <a class="block_link" href="https://www.gotadi.com/" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="https://vltk1.github.io/i/gotadi.jpg" alt="">
-                                </figure>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                
-            </ul>
-            <h4 class="block_category">Khách sạn & Resort</h4>
-        </div>
-
-
-        <div class="block_row">
-            <ul class="block_group">
-                <li class="block_item" id="vtvgiaitri">
-                    <a class="block_link" href="https://www.vtvgiaitri.vn/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/vtvgiaitri.jpg" alt="">
-                            <figcaption class="block_name">vtvgiaitri</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="hdviet">
-                    <a class="block_link" href="https://movies.hdviet.com/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/hdviet.jpg" alt="">
-                            <figcaption class="block_name">hdviet</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="fptplay">
-                    <a class="block_link" href="https://fptplay.vn/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/fptplay.jpg" alt="">
-                            <figcaption class="block_name">fptplay</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_sub">
-                    <ul class="block_team">
-                        <li class="block_items" id="vieon">
-                            <a class="block_link" href="https://vieon.vn/" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="https://vltk1.github.io/i/vieon.jpg" alt="">
-                                </figure>
-                            </a>
-                        </li>
-                        <li class="block_items" id="danet">
-                            <a class="block_link" href="https://danet.vn/go/AVOD" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="https://vltk1.github.io/i/danet.jpg" alt="">
-                                </figure>
-                            </a>
-                        </li>
-                        <li class="block_items" id="wetv">
-                            <a class="block_link" href="https://wetv.vip/" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="https://vltk1.github.io/i/wetv.jpg" alt="">
-                                </figure>
-                            </a>
-                        </li>
-                        <li class="block_items" id="iq">
-                            <a class="block_link" href="https://www.iq.com/" target="_blank">
-                                <figure class="block_icon">
-                                    <img src="https://vltk1.github.io/i/iq.jpg" alt="">
-                                </figure>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <h4 class="block_category">Xem phim</h4>
-        </div>
-       
-        </div>
 
     <div class="block_list" id="tab02">
 
@@ -1697,8 +1695,6 @@ img {
             <h4 class="block_category">Việc làm</h4>
         </div>
 
-       
-
         <div class="block_row">
             <ul class="block_group">
                 <li class="block_item" id="miniclip">
@@ -1844,10 +1840,10 @@ img {
                     </a>
                 </li>
                 <li class="block_item" id="accuweather">
-                    <a class="block_link" href="https://www.accuweather.com/vi/" target="_blank">
+                    <a class="block_link" href="https://www.msn.com/vi-vn/weather/" target="_blank">
                         <figure class="block_icon">
                             <img src="https://play-lh.googleusercontent.com/EgDT3XrIaJbhZjINCWsiqjzonzqve7LgAbim8kHXWgg6fZnQebqIWjE6UcGahJ6yugU=s48-rw" alt="">
-                            <figcaption class="block_name">accuweather</figcaption>
+                            <figcaption class="block_name">MSN</figcaption>
                         </figure>
                     </a>
                 </li>
@@ -1887,105 +1883,131 @@ img {
             <h4 class="block_category">Thời tiết</h4>
         </div>
 
-        <div class="block_row" id="p4">
+        
+        <div class="block_row">
             <ul class="block_group">
-                
-                <li class="block_items" id="nettruyenmin">
-                    <a class="block_link" href="https://www.nettruyenmin.com/" target="_blank">
+                <li class="block_item" id="agoda">
+                    <a class="block_link" href="https://www.agoda.com/vi-vn/" target="_blank">
                         <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/nettruyenmin.jpg" alt="">
-                            <figcaption class="block_name">nettruyenmin</figcaption>
+                            <img src="https://vltk1.github.io/i/agoda.jpg" alt="">
+                            <figcaption class="block_name">Agoda</figcaption>
                         </figure>
                     </a>
                 </li>
-                <li class="block_item" id="wattpad">
-                    <a class="block_link" href="https://www.wattpad.com/" target="_blank">
+                <li class="block_item" id="begodi">
+                    <a class="block_link" href="https://www.begodi.vn/" target="_blank">
                         <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/wattpad.jpg" alt="">
-                            <figcaption class="block_name">Wattpad</figcaption>
+                            <img src="https://vltk1.github.io/i/begodi.jpg" alt="">
+                            <figcaption class="block_name">Begodi</figcaption>
                         </figure>
                     </a>
                 </li>
-                <li class="block_item" id="waka">
-                    <a class="block_link" href="https://ebook.waka.vn/" target="_blank">
+                <li class="block_item" id="booking">
+                    <a class="block_link" href="https://www.booking.com/" target="_blank">
                         <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/waka.jpg" alt="">
-                            <figcaption class="block_name">Waka</figcaption>
+                            <img src="https://vltk1.github.io/i/booking.jpg" alt="">
+                            <figcaption class="block_name">Booking</figcaption>
                         </figure>
                     </a>
                 </li>
                 <li class="block_sub">
                     <ul class="block_team">
-                        <li class="block_item" id="truyenfull">
-                            <a class="block_link" href="https://truyenfull.vn/" target="_blank">
+                        <li class="block_items" id="vntrip">
+                            <a class="block_link" href="https://www.vntrip.vn/" target="_blank">
                                 <figure class="block_icon">
-                                    <img src="https://vltk1.github.io/i/truyenfull.jpg" alt="">
+                                    <img src="https://vltk1.github.io/i/vntrip.jpg" alt="">
                                 </figure>
                             </a>
                         </li>
-                        <li class="block_items" id="anime47">
-                            <a class="block_link" href="https://anime47.com/" target="_blank">
+                        <li class="block_items" id="chudu24">
+                            <a class="block_link" href="https://www.chudu24.com/" target="_blank">
                                 <figure class="block_icon">
-                                    <img src="https://vltk1.github.io/i/anime47.jpg" alt="">
+                                    <img src="https://vltk1.github.io/i/chudu24.jpg" alt="">
                                 </figure>
                             </a>
                         </li>
-                        <li class="block_items" id="hacamchicac">
-                            <a class="block_link" href="https://hacamchicac.com/" target="_blank">
+                        <li class="block_items" id="traveloka">
+                            <a class="block_link" href="https://www.traveloka.com/vi-vn/" target="_blank">
                                 <figure class="block_icon">
-                                    <img src="https://vltk1.github.io/i/hacamchicac.jpg" alt="">
+                                    <img src="https://vltk1.github.io/i/traveloka.jpg" alt="">
                                 </figure>
                             </a>
                         </li>
-                        <li class="block_items" id="cmangaz">
-                            <a class="block_link" href="https://cmangaz.com/" target="_blank">
+                        <li class="block_items" id="gotadi">
+                            <a class="block_link" href="https://www.gotadi.com/" target="_blank">
                                 <figure class="block_icon">
-                                    <img src="https://vltk1.github.io/i/cmangaz.jpg" alt="">
+                                    <img src="https://vltk1.github.io/i/gotadi.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
+            </ul>
+            <h4 class="block_category">Khách sạn & Resort</h4>
+        </div>
+
+
+        <div class="block_row">
+            <ul class="block_group">
+                <li class="block_item" id="vtvgiaitri">
+                    <a class="block_link" href="https://www.vtvgiaitri.vn/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="https://vltk1.github.io/i/vtvgiaitri.jpg" alt="">
+                            <figcaption class="block_name">vtvgiaitri</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_item" id="hdviet">
+                    <a class="block_link" href="https://movies.hdviet.com/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="https://vltk1.github.io/i/hdviet.jpg" alt="">
+                            <figcaption class="block_name">hdviet</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_item" id="fptplay">
+                    <a class="block_link" href="https://fptplay.vn/" target="_blank">
+                        <figure class="block_icon">
+                            <img src="https://vltk1.github.io/i/fptplay.jpg" alt="">
+                            <figcaption class="block_name">fptplay</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li class="block_sub">
+                    <ul class="block_team">
+                        <li class="block_items" id="vieon">
+                            <a class="block_link" href="https://vieon.vn/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="https://vltk1.github.io/i/vieon.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="danet">
+                            <a class="block_link" href="https://danet.vn/go/AVOD" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="https://vltk1.github.io/i/danet.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="wetv">
+                            <a class="block_link" href="https://wetv.vip/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="https://vltk1.github.io/i/wetv.jpg" alt="">
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="block_items" id="iq">
+                            <a class="block_link" href="https://www.iq.com/" target="_blank">
+                                <figure class="block_icon">
+                                    <img src="https://vltk1.github.io/i/iq.jpg" alt="">
                                 </figure>
                             </a>
                         </li>
                     </ul>
                 </li>
             </ul>
-            <h4 class="block_category">Truyện tranh</h4>
-        </div>
-
-        <div class="block_row">
-            <ul class="block_group">
-                <li class="block_item" id="frame_vnexpress">
-                    <a class="block_link" href="https://cafef.vn/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/cafef.jpg" alt="">
-                            <figcaption class="block_name">cafef</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="vneconomy">
-                    <a class="block_link" href="https://vneconomy.vn/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/vietnamnet.jpg" alt="">
-                            <figcaption class="block_name">vietnamnet</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="vef">
-                    <a class="block_link" href="https://vef.vn/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/vef.jpg" alt="">
-                            <figcaption class="block_name">vef</figcaption>
-                        </figure>
-                    </a>
-                </li>
-                <li class="block_item" id="baodautu">
-                    <a class="block_link" href="https://baodautu.vn/" target="_blank">
-                        <figure class="block_icon">
-                            <img src="https://vltk1.github.io/i/baodautu.jpg" alt="">
-                            <figcaption class="block_name">msn</figcaption>
-                        </figure>
-                    </a>
-                </li>
-            </ul>
-            <h4 class="block_category">thị trường</h4>
+            <h4 class="block_category">Xem phim</h4>
         </div>
 
         <div class="block_row">
@@ -2105,7 +2127,7 @@ img {
 
         /* Handle */
         ::-webkit-scrollbar-thumb {
-            background: red;
+            background: #929292;
         }
 
         /* Handle on hover */
@@ -2402,8 +2424,8 @@ function tabs(value, numa) {
         $("#box_views").toggleClass("open");
     });
     
-    $("#hotTrend").click(function() {
-        $("#frame_trend").toggleClass("open");
+    $("#hotTrend_news").click(function() {
+        $("#frame_trend").addClass("open");
     });
     
     $("#tast_vnexpress").click(function() {
@@ -2427,13 +2449,14 @@ function tabs(value, numa) {
     $("#block_zoom").click(function() {$("#box_views").addClass("zoom");});
     $("#block_delete").click(function() {$("#box_views").removeClass("open");});
 
+    $("#block2_back").click(function()  {$("#frame_trend").removeClass("zoom");});
+    $("#block2_zoom").click(function() {$("#frame_trend").addClass("zoom");});
+    $("#block2_delete").click(function() {$("#frame_trend").removeClass("open");});
+
     $("#menu_desktop1").click(function() {tabs("#tab01");$(".block_photo").removeClass("open");$(this).toggleClass("open");$("#menu").toggleClass("open");$("#desktop1").trigger("click");});
     $("#menu_desktop2").click(function() {tabs("#tab02");$(".block_photo").removeClass("open");$(this).toggleClass("open");$("#menu").toggleClass("open");$("#desktop2").trigger("click");});
     $("#menu_desktop3").click(function() {tabs("#tab03");$(".block_photo").removeClass("open");$(this).toggleClass("open");$("#menu").toggleClass("open");$("#desktop3").trigger("click");});
     $("#open_menu").click(function() {$(this).toggleClass("open");$("#menu").toggleClass("open");});
-
-    
-   
 
     $(document).ready(function(){
       
