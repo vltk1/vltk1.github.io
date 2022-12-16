@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta name="keywords" content="ドーミーイン北見,北見,ホテル,北海道,ビジネスホテル,温泉,天然温泉,宿泊,予約,常呂川の湯,ところがわの湯">
-	<meta name="description" content="【天然温泉 常呂川の湯 ドーミーイン北見】のご予約は公式サイトホテスパがお得！北海道、JR「北見」駅より徒歩3分。露天風呂付き天然温泉でリゾート気分を満喫。疲れが癒せると同時に、ツルツルお肌もゲット！">
-	<title>Menus Top 100</title>
+	<meta name="keywords" content="Tivi công cộng">
+	<meta name="description" content="Tivi công cộng">
+	<title>Tivi công cộng</title>
     <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -232,7 +232,7 @@ main {
     background-size: cover;
     background-color: rgba(0, 0, 0, .5);
     background-size: 130% 130%;
-	animation: gradient 80s ease infinite;
+	animation: gradient 280s ease infinite;
     /*
     transform: rotateX(0) rotateY(0) translateZ(0) !important;
     transition: transform 500ms ease, opacity 500ms linear 500ms !important; 
@@ -530,16 +530,16 @@ img {
         position: relative;
     }
     .block_box, .frame_hotTrend {
-        width: 600px;
-        height: 400px;
+        width: 100%;
+        height: 60vh;
         flex-wrap: wrap;
         background-color: #fff;
         border: 1px solid #555;
         position: absolute;
         list-style: none;
         border-radius: 10px;
-        top: 38px;
-        margin-left: -220px;
+        top: 0;
+        right: 0;
         padding: 22px 0 0 0;
         box-shadow: 5px 5px 20px rgb(29 27 27);
         z-index: 991;
@@ -657,61 +657,8 @@ img {
     }
 </style>
 
-    <!-- <div class="block_top">
-        <div class="block_clock">
-            <ul class="block_time">
-                <li id="hours"></li>
-                <li id="point"></li>
-                <li id="min"></li>
-                <li id="point"></li>
-                <li id="sec"></li>
-            </ul>
-            <div id="Date"></div>
-            <div class="block_economic">
-                <i id="economic"></i>
-                <div class="block_box" id="box_views">
-                    <div class="block_bar">
-                        <i class="block_barbox" id="block_back">-</i>
-                        <i class="block_barbox" id="block_zoom">O</i>
-                        <i class="block_barbox" id="block_delete">X</i>
-                    </div>
-                    <ul class="block_dropdown" id="dropdown">
-                        <li class="block_dropdown-item open" onclick="frame('frame_gold');">Bảng giá vàng</li>
-                        <li class="block_dropdown-item" onclick="frame('frame_oilfuel');">Xăng dầu</li>
-                        <li class="block_dropdown-item" onclick="frame('frame_convert');">Công cụ chuyển đổi</li>
-                        <li class="block_dropdown-item" onclick="frame('frame_rate');">Tỷ giá hối đoái</li>
-                        <li class="block_dropdown-item" onclick="frame('frame_currency');">Ngoại tệ</li>
-                        <li class="block_dropdown-item" onclick="frame('frame_money');">Tiền ảo</li>
-                        <li class="block_dropdown-item" onclick="frame('frame_deposit');">Lãi suất Gửi</li>
-                        <li class="block_dropdown-item" onclick="frame('frame_interest');">Lãi suất Vay</li>
-                        <li class="block_dropdown-item" onclick="frame('frame_market');">Giá Cả thị trường</li>
-                    </ul>
-                    <div class="block_frame" id="frame_economic">
-                        <iframe id="frame_gold" class="open" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/vang?bgheader=b53e3e&colorheader=ffffff&padding=5&fontsize=13&hienthi=sjc,doji,bank,pnj,ngochai&"></iframe>
-                        <iframe id="frame_oilfuel" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/xang-dau?bgheader=b81414&colorheader=ffffff&padding=6&fontsize=13&hienthi=trongnuoc,thegioi&"></iframe>
-                        <iframe id="frame_convert" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/json/cong-cu-chuyen-doi-tien-te?maukhungketqua=dc1818&mauchuketqua=ffffff&sizechuketqua=30&fontsize=13&border=1&hienthamkhao=1&hienthi=aud,cad,chf,cny,dkk&"></iframe>
-                        <iframe id="frame_rate" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/tygia?bgheader=ff5722&colorheader=ffffff&padding=5&fontsize=13&hienthi=VietinBank,BIDV,MBBank,Sacombank,Techcombank,Vietcombank,ABBANK,BVBANK,PVCOMBank,VCCB,LIENVIETPOSTBANK,CBBank,DongA,GPBANK,HLBANK&"></iframe>
-                        <iframe id="frame_currency" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/ngoaite?bgheader=333333&colorheader=ffffff&padding=5&fontsize=13&hienthi=aud,cad,chf,cny,dkk,eur,gbp,hkd&"></iframe>
-                        <iframe id="frame_money" frameborder="0" width="100%" height="100%" src=""></iframe>
-                        <iframe id="frame_deposit" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/laisuat?bgheader=6f42c1&colorheader=ffffff&padding=5&fontsize=13&hienthi=VietinBank,ACB,BIDV,MBBank,SHB,Techcombank&"></iframe>
-                        <iframe id="frame_interest" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/json/laisuatchovay?bgheader=ffc107&colorheader=ffffff&padding=5&fontsize=13&border=0&hienthi=VietinBank,ACB,BIDV,MBBank,SHB&"></iframe>
-                        <iframe id="frame_market" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/gia-ca-thi-truong?bgheader=ffc107&colorheader=ffffff&padding=5&fontsize=13&border=0&hienthi=thit-heo,ca-phe&"></iframe>
-                    </div>
-                </div>
-            </div>
-            <div id="hotTrend">
-                <i id="hotTrend_news" class="block2_news"></i>
-                <div class="frame_hotTrend" id="frame_trend">
-                    <div class="block_bar">
-                        <i class="block_barbox" id="block2_back">-</i>
-                        <i class="block_barbox" id="block2_zoom">O</i>
-                        <i class="block_barbox" id="block2_delete">X</i>
-                    </div>
-                    <iframe frameborder="0" width="100%" height="100%" src="https://www.tivi.x10.bz/rss/"></iframe>
-                </div>
-            </div>
-        </div>
-    </div> -->
+    
+
     <nav>
         <ul id="taskbarData" class="block_taskbar"></ul>
         <button class="block_button" id="open_menu">
@@ -743,6 +690,7 @@ img {
 
 <main id="main">
     <div class="block_list open" id="tab01">
+        
         <div class="home">
             <div class="home_left">
                 <div class="home_time">
@@ -757,19 +705,140 @@ img {
                 </div>
                 <div class="home_row">
                     <div class="home_col2">
-                        <iframe frameborder="0" width="100%" height="100%" src="frame_price.html"></iframe>
+                            <ul class="block_types" id="dropdown">
+                                <li onclick="frame('frame_gold');">Bảng giá vàng</li>
+                                <li onclick="frame('frame_oilfuel');">Xăng dầu</li>
+                                <li onclick="frame('frame_convert');">Công cụ chuyển đổi</li>
+                                <li onclick="frame('frame_rate');">Tỷ giá hối đoái</li>
+                                <li onclick="frame('frame_currency');">Ngoại tệ</li>
+                                <li onclick="frame('frame_deposit');">Lãi suất Gửi</li>
+                                <li onclick="frame('frame_interest');">Lãi suất Vay</li>
+                                <li onclick="frame('frame_market');">Giá Cả thị trường</li>
+                            </ul>
+                            <!-- <div class="home_laction">
+                                <iframe frameborder="0" width="100%" height="100%" src="frame_price.html"></iframe>
+                            </div> -->
                     </div>
                     <div class="home_col2 home_bgc2">
-                        <a href="https://www.msn.com/vi-vn/weather/" target="_blank" class="home_link2"></a>
+                        <!-- <a href="https://www.msn.com/vi-vn/weather/" target="_blank" class="home_link2"></a> -->
                         <iframe frameborder="0" width="100%" height="100%" src="https://tivi.x10.bz/weather/"></iframe>
                     </div>
+                    <style>
+                       
+                        .block_types {
+                            display: flex;
+                            flex-wrap: wrap;
+                            list-style: none;
+                        }
+                        .block_types li {
+                            width: 100%;
+                            padding: 0 2px;
+                            display: flex;
+                            align-items: center;
+                            font-size: 12px;
+                            cursor: pointer;
+                            border-top-right-radius: 5px;
+                            border-bottom-right-radius: 5px;
+                        }
+                        .block_types li.open {
+                            color: #fff;
+                        }   
+                        .block_types li a {
+                            text-decoration: none;
+                            color: #333;
+                        }
+                        .block_types li::before {
+                            content: "";
+                            width: 4px;
+                            height: 16px;
+                            display: inline-block;
+                            background: #000;
+                            margin: 0 5px 0 -2px;
+                        }
+                        .block_types li:nth-child(1).open {
+                            background: rgb(0, 255, 200);
+                        }
+                        .block_types li:nth-child(2).open {
+                            background: rgb(0, 195, 255);
+                        }
+                        .block_types li:nth-child(3).open {
+                            background: rgb(0, 132, 255);
+                        }
+                        .block_types li:nth-child(4).open {
+                            background: rgb(0, 60, 255);
+                        }
+                        .block_types li:nth-child(5).open {
+                            background: rgb(98, 0, 255);
+                        }
+                        .block_types li:nth-child(6).open {
+                            background: rgb(234, 0, 255);
+                        }
+                        .block_types li:nth-child(7).open {
+                            background: rgb(255, 0, 128);
+                        }
+                        .block_types li:nth-child(8).open {
+                            background: rgb(255, 0, 43);
+                        }
+
+
+                        .block_types li:nth-child(1)::before {
+                            background: rgb(0, 255, 200);
+                        }
+                        .block_types li:nth-child(2)::before {
+                            background: rgb(0, 195, 255);
+                        }
+                        .block_types li:nth-child(3)::before {
+                            background: rgb(0, 132, 255);
+                        }
+                        .block_types li:nth-child(4)::before {
+                            background: rgb(0, 60, 255);
+                        }
+                        .block_types li:nth-child(5)::before {
+                            background: rgb(98, 0, 255);
+                        }
+                        .block_types li:nth-child(6)::before {
+                            background: rgb(234, 0, 255);
+                        }
+                        .block_types li:nth-child(7)::before {
+                            background: rgb(255, 0, 128);
+                        }
+                        .block_types li:nth-child(8)::before {
+                            background: rgb(255, 0, 43);
+                        }
+                        
+                        .home_scroll {
+                            overflow: scroll;
+                            height: 129px;
+                        }
+                        .home_laction {
+                            height: 162px;
+                        }
+                    </style>
                 </div>
                 <div class="home_row2">
-                   Thông báo
-                   <iframe frameborder="0" width="100%" height="90%" src="https://www.tivi.x10.bz/rss/"></iframe>
+                   <iframe frameborder="0" width="100%" height="98%" src="https://www.tivi.x10.bz/rss/"></iframe>
                 </div>
             </div>
             <div class="home_right">
+                <div class="block_box" id="box_views">
+                    <div class="block_bar">
+                        <!-- <i class="block_barbox" id="block_back">-</i> -->
+                        <i class="block_barbox" id="block_zoom"> </i>
+                        <i class="block_barbox" id="block_delete"> </i>
+                    </div>
+                
+                    <div class="block_frame" id="frame_economic">
+                        <iframe id="frame_gold" class="open" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/vang?bgheader=b53e3e&colorheader=ffffff&padding=5&fontsize=13&hienthi=sjc,doji,bank,pnj,ngochai&"></iframe>
+                        <iframe id="frame_oilfuel" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/xang-dau?bgheader=b81414&colorheader=ffffff&padding=6&fontsize=13&hienthi=trongnuoc,thegioi&"></iframe>
+                        <iframe id="frame_convert" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/json/cong-cu-chuyen-doi-tien-te?maukhungketqua=dc1818&mauchuketqua=ffffff&sizechuketqua=30&fontsize=13&border=1&hienthamkhao=1&hienthi=aud,cad,chf,cny,dkk&"></iframe>
+                        <iframe id="frame_rate" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/tygia?bgheader=ff5722&colorheader=ffffff&padding=5&fontsize=13&hienthi=VietinBank,BIDV,MBBank,Sacombank,Techcombank,Vietcombank,ABBANK,BVBANK,PVCOMBank,VCCB,LIENVIETPOSTBANK,CBBank,DongA,GPBANK,HLBANK&"></iframe>
+                        <iframe id="frame_currency" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/ngoaite?bgheader=333333&colorheader=ffffff&padding=5&fontsize=13&hienthi=aud,cad,chf,cny,dkk,eur,gbp,hkd&"></iframe>
+                        <iframe id="frame_money" frameborder="0" width="100%" height="100%" src=""></iframe>
+                        <iframe id="frame_deposit" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/laisuat?bgheader=6f42c1&colorheader=ffffff&padding=5&fontsize=13&hienthi=VietinBank,ACB,BIDV,MBBank,SHB,Techcombank&"></iframe>
+                        <iframe id="frame_interest" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/json/laisuatchovay?bgheader=ffc107&colorheader=ffffff&padding=5&fontsize=13&border=0&hienthi=VietinBank,ACB,BIDV,MBBank,SHB&"></iframe>
+                        <iframe id="frame_market" frameborder="0" width="100%" height="100%" src="https://webtygia.com/api/gia-ca-thi-truong?bgheader=ffc107&colorheader=ffffff&padding=5&fontsize=13&border=0&hienthi=thit-heo,ca-phe&"></iframe>
+                    </div>
+                </div>
                 <div class="home_items">
                     <div class="block_row">
                         <ul class="block_group">
@@ -1164,7 +1233,7 @@ img {
             }
             .home_col2 {
                 width: 50%;
-                height: 120px;
+                height: 140px;
                 background-color: #fff;
                 padding: 10px;
                 margin: 0 10px;
@@ -1180,6 +1249,7 @@ img {
             .home_right {
                 width: 54vw;
                 height: 82vh;
+                position: relative;
             }
         </style>
     </div>
@@ -2392,25 +2462,27 @@ if (typeof(Storage) !== 'undefined') {
     alert('LocalStorage không hỗ trợ trên trình duyệt này!!');
 }
 
-function tabs(value, numa) {
-    $(".block_dots").removeClass("open");
-    $(".block_list").removeClass("open");
-    $("#main").removeClass("a1");
-    $("#main").removeClass("a2");
-    $("#main").removeClass("a3");
-    $("#main").addClass("open");
-    $("#main").addClass(numa);
-    $(value).toggleClass("open");
-    setTimeout(opentask, 600);
-}
+    function tabs(value, numa) {
+        $(".block_dots").removeClass("open");
+        $(".block_list").removeClass("open");
+        $("#main").removeClass("a1");
+        $("#main").removeClass("a2");
+        $("#main").removeClass("a3");
+        $("#main").addClass("open");
+        $("#main").addClass(numa);
+        $(value).toggleClass("open");
+        setTimeout(opentask, 600);
+    }
 
     function frame (value) {
-        $(".block_dropdown-item").removeClass("open");
+        $("#box_views").addClass("open");
         $("#frame_economic iframe").removeClass("open");
-        $(this).addClass("open");
         $("#" + value).addClass("open");
-    }   
-
+    }
+    $("#dropdown li").click(function() {
+        $("#dropdown li").removeClass("open");
+        $(this).addClass("open");
+    });
     function taskbar (value) {
         $("#" + value).addClass("open");
         //alert("!");
@@ -2443,10 +2515,10 @@ function tabs(value, numa) {
     });
     $("#desktop1").click(function() {tabs("#tab01","a1");$(this).toggleClass("open");});
     $("#desktop2").click(function() {tabs("#tab02","a2");$(this).toggleClass("open");});
-    $("#desktop3").click(function() {tabs("#tab03","a3");$(this).toggleClass("open");});
+    $("#desktop3").click(function() {tabs("#tab03","a3");$(this).toggleClass("open");/*$("#box_views").removeClass("open");*/});
 
     $("#block_back").click(function()  {$("#box_views").removeClass("zoom");});
-    $("#block_zoom").click(function() {$("#box_views").addClass("zoom");});
+    $("#block_zoom").click(function() {$("#box_views").toggleClass("zoom");});
     $("#block_delete").click(function() {$("#box_views").removeClass("open");});
 
     $("#block2_back").click(function()  {$("#frame_trend").removeClass("zoom");});
