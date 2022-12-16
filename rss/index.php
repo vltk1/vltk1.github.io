@@ -59,7 +59,7 @@
         width: 100%;
     }
     .right {
-        width: 80%;
+        width: 100%;
     }
     article ul {
         list-style: none;
@@ -130,7 +130,9 @@
 </style>
 </head>
 <body>
+  
 <?php
+  
     $rss_url = 'https://trends.google.com.vn/trends/trendingsearches/daily/rss?geo=VN';
     $api_endpoint = 'https://api.rss2json.com/v1/api.json?rss_url=';
     $data = file_get_contents($rss_url);
@@ -150,6 +152,7 @@
     //         echo "{$item['description']}\n<br>";
     //     }
     // } 
-    ?>
+  
+?>
     </body>
     </html>
